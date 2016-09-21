@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MTB-kartat: Garminiin">
+<meta name="author" content="Tapio K.">
+<!-- <link rel="icon" href="../../favicon.ico"> Tähän ikoni sitten kun sellainen on-->
+
+<title>MTB-kartat: selainversio</title>
+
+<!-- Käytettävä CSS-tyyli -->
+<link href="TK.css" rel="stylesheet">
+<link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
+
+<!-- Fontit Google Fontsista -->
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+
+<!-- Aktiivisen sivun otsikon korostus -->
+<style>
+#nav_button_1 {
+	border-bottom:solid #f2a766 1px;
+	border-top:solid #f2a766 1px;
+}
+#nav_button_1 a:hover, a:active {  
+	text-decoration:none; 
+	color:#f2a766;  
+}
+
+
+</style>
+</head>
+<body>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
+################################################
+-->
+<div id="header">
+	<div class="column" style="width:860px;">
+		<div id="logo_box" style="display:inline-block; vertical-align:top; width:90px; height:120px;">
+		<img src="./images/gps-symbol_medium.png" alt="Logo" style="opacity:0.9; filter:alpha(opacity=90); float:left; margin-top:5px;">
+		</div>
+		<div id="title_and_links" style="display:inline-block; vertical-align:top; width:400px; padding-top:20px;  text-align:left;">
+			<paaotsikko>
+			MTB-KARTTA.FI
+			</paaotsikko><br/>
+			<div class="nav_container">
+				<div id="nav_button_1" class="nav_button"><a href="MTB-kartta_selaimessa.html">Selaimessa&nbsp;</a></div>
+				<div id="nav_button_2" class="nav_button"><a href="MTB-kartta_garminiin.html">&nbsp;&nbsp;Garminiin&nbsp;&nbsp;</a></div>
+				<div id="nav_button_3" class="nav_button"><a href="MTB-kartta_karttaselite.html">&nbsp;Karttaselite</a></div>
+				<div id="nav_button_4" class="nav_button"><a href="MTB-kartta_osallistu.html">&nbsp;Osallistu</a></div>
+			</div>
+		</div>
+		<div id="contact" style="float:right; vertical-align:top; width:300px; height:80px; padding-top:15px; padding-right:20px;  text-align:right;">
+		<copyright>
+		Palaute: <a href="mailto:mtb-kartta@gmail.com?Subject=MTB-kartta" target="_top">mtb-kartta@gmail.com</a>
+		</copyright>
+		</div>
+	</div>
+</div>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
+################################################
+-->
+<div id="content">
+	<div id="map" style="height:100%; min-height:30px;"></div>
+	<script src="leaflet-0.7/leaflet-src.js"></script>
+	<script type="text/javascript">
+	
+// Base layers and layercontrol setup
+	
+	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
+					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
+	
+	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', attribution: mtbAttr, maxZoom: 16}),
+		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', attribution: mmlAttr, maxZoom: 18});
+
+	var map = L.map('map', {
+		center: [61.50240, 23.8090],
+		zoom: 14,
+		layers: [mtb]
+	});
+	
+	var baseLayers = {
+		"MTB-kartta": mtb,
+		"MML-kartta": mml
+	};
+
+var layerControl = L.control.layers( baseLayers, null, {visible: true, position: 'topright', collapsed: false });
+
+map.addControl(layerControl);
+
+	</script>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
+###################################################
+-->
+<div id="footer">
+	<div class="column" style="line-height:0.5; width:860px; padding-top:5px; padding-left:-5px;">
+	<copyright>
+	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+	MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. Tähän perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>.<br/>
+	MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+	</copyright>
+	</div>
+</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
+###################################################
+-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
