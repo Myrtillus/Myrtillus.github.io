@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="MTB-kartat: Garminiin">
 <meta name="author" content="Tapio K.">
-<!-- <link rel="icon" href="../../favicon.ico"> T‰h‰n ikoni sitten kun sellainen on-->
+<!-- <link rel="icon" href="../../favicon.ico"> T√§h√§n ikoni sitten kun sellainen on-->
 
 <title>MTB-kartat: selainversio</title>
 
-<!-- K‰ytett‰v‰ CSS-tyyli -->
+<!-- K√§ytett√§v√§ CSS-tyyli -->
 <link href="TK.css" rel="stylesheet">
 <link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
 
@@ -74,9 +74,9 @@
 	
 	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
-					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+					'Imagery ¬© <a href="http://osoite.tahan/">MTB-KARTTA</a>';
 	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
-					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-k‰ytt‰j‰t ry</a>';
+					'Imagery ¬© <a href="http://kartat.kapsi.fi/">Kapsi Internet-k√§ytt√§j√§t ry</a>';
 	
 	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', attribution: mtbAttr, maxZoom: 16}),
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', attribution: mmlAttr, maxZoom: 18});
@@ -105,9 +105,9 @@ map.addControl(layerControl);
 <div id="footer">
 	<div class="column" style="line-height:0.5; width:860px; padding-top:5px; padding-left:-5px;">
 	<copyright>
-	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekij‰t, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan t‰ydent‰v‰ aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
-	MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. T‰h‰n perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-k‰ytt‰j‰t ry</a>.<br/>
-	MTB-karttatiilien laskennan sek‰ palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekij√§t, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan t√§ydent√§v√§ aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+	MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. T√§h√§n perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-k√§ytt√§j√§t ry</a>.<br/>
+	MTB-karttatiilien laskennan sek√§ palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
 	</copyright>
 	</div>
 </div>
