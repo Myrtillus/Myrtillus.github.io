@@ -44,7 +44,7 @@ table {
 /* Linkkien tyylit */
 
 a {
-	font:90% asap,sans-serif;
+	font:90% Asap,sans-serif;
 }
 a:visited {
 	color:#f2a766; 
@@ -67,16 +67,36 @@ a:active {
 	text-decoration:none;
 }
 
-html,body {
+html {
 	height:100%;
+	overflow-y: scroll;
+}
+body {
+	height:100%;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
 }
 #header {
 	height:125px;
 	width:100%;
-	top:0px;
-	left:0px;
-	position:absolute;
 	background:#3b3b3b;
+}
+#content {
+    min-height: 100%; 
+    height: auto !important; /*Cause footer to stick to bottom in IE 6*/
+    height: 100%; 
+    margin: 0 auto -50px; /*Allow for footer height*/
+    vertical-align:bottom;
+	background:#e2e2e2; 
+}
+#content_map {
+    min-height: 90%; 
+    height: auto !important; /*Cause footer to stick to bottom in IE 6*/
+    margin: 0 auto -50px; /*Allow for footer height*/
+    vertical-align:bottom;
+	background:#e2e2e2; 
 }
 #footer {
 	height:50px;
@@ -87,25 +107,6 @@ html,body {
 	background:#3b3b3b;
 }
 
-
-
-
-#content {
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    height:100%;
-    padding-top: 125px;
-	padding-bottom: 50px;
-    overflow:hidden;
-	background:#e2e2e2; 
-}
-#content #scrollableContent {
-    height:100%;
-    width:100%;
-	margin:0 auto;
-    overflow:auto;
-}
 
 
 div.nav_button {
@@ -136,7 +137,7 @@ div.column {
 div.content_column {
 	position:relative;
 	width:840px;
-	min-height:101%;
+	height:100%;
 	margin:0px auto;
 	text-align:left;
 	padding-top:0px;
@@ -150,6 +151,32 @@ div.screenshot {
 	display:inline-block;
 	vertical-align:top;
 }
+div.symbol {
+	display:inline-block;
+	vertical-align:top;
+	margin-top:5px;
+	width:39px;
+	height:39px;
+}
+div.symbol_title {
+	display:inline-block;
+	vertical-align:top;
+	width:261px;
+	height:39px;
+	margin-top:5px;
+	padding-top:3px;
+	padding-left:5px;
+}
+div.symbol_desc {
+	display:inline-block;
+	line-height:150%;
+	vertical-align:top;
+	margin-top:-5px;
+	padding-left:5px;
+	padding-bottom:25px;
+}	
+
+
 
 hr {
     display: block;
@@ -173,7 +200,7 @@ paaotsikko {
 alaotsikko {
 	font:200% abel,sans-serif;
 	font-weight:700;
-	line-height:100%;
+	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
@@ -185,16 +212,16 @@ pikkuotsikko {
 	color:#3b3b3b;
 }
 leipateksti {
-	font:90% asap,sans-serif;
-	font-weight:400;
-	line-height:1.2;
+	font:90% Asap,sans-serif;
+	font-style:regular;
+	line-height:150%;
 	text-align:left;
 	color:#7f7f7f;
 }
 copyright {
-	font:70% asap,sans-serif;
+	font:70% Asap,sans-serif;
 	font-weight:400;
-	line-height:0.5;
+	line-height:50%;
 	text-align:left;
 	color:#7f7f7f;
 }
@@ -210,40 +237,6 @@ small {
 	font-size: 70%;
 }
 
-/* Listan tyylit */
-ul {
-	margin-left:1em;
-    list-style-type: disc;
-	list-style-position: outside;
-}
-
-
-
-
-
-div.symbol {
-	display:inline-block;
-	vertical-align:top;
-	margin-top:5px;
-	width:39px;
-	height:39px;
-}
-div.symbol_title {
-	display:inline-block;
-	vertical-align:top;
-	width:261px;
-	height:39px;
-	margin-top:5px;
-	padding-top:3px;
-	padding-left:5px;
-}
-div.symbol_desc {
-	display:inline-block;
-	vertical-align:top;
-	margin-top:-5px;
-	padding-left:5px;
-	padding-bottom:15px;
-}	
 
 
 #mtbp0- {

@@ -16,6 +16,7 @@
 <!-- Fontit Google Fontsista -->
 <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'> 
 
 <!-- Aktiivisen sivun otsikon korostus -->
 <style>
@@ -27,8 +28,6 @@
 	text-decoration:none; 
 	color:#f2a766;  
 }
-
-
 </style>
 </head>
 <body>
@@ -55,7 +54,7 @@
 		</div>
 		<div id="contact" style="float:right; vertical-align:top; width:300px; height:80px; padding-top:15px; padding-right:20px;  text-align:right;">
 		<copyright>
-		Palaute: <a href="mailto:mtb-kartta@gmail.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>
+<!--		Palaute: <a href="xxx@yyy.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>-->
 		</copyright>
 		</div>
 	</div>
@@ -65,8 +64,7 @@
 ###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
 ################################################
 -->
-<div id="content">
-	<div id="map" style="height:100%; min-height:30px;"></div>
+<div id="content_map">
 	<script src="leaflet-0.7/leaflet-src.js"></script>
 	<script type="text/javascript">
 	
@@ -78,10 +76,10 @@
 	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
 					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
 	
-	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', attribution: mtbAttr, maxZoom: 16}),
-		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', attribution: mmlAttr, maxZoom: 18});
+	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', maxZoom: 16}),
+		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
 
-	var map = L.map('map', {
+	var map = L.map('content_map', {
 		center: [61.50240, 23.8090],
 		zoom: 14,
 		layers: [mtb]
@@ -95,8 +93,9 @@
 var layerControl = L.control.layers( baseLayers, null, {visible: true, position: 'topright', collapsed: false });
 
 map.addControl(layerControl);
-
 	</script>
+</div>
+
 <!--
 ###################################################
 ###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
