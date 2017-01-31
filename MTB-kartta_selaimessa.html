@@ -18,6 +18,11 @@
 <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'> 
 
+<!-- Scriptit -->
+<script src="leaflet-0.7/leaflet-src.js"></script>
+<script src="leaflet-0.7/leaflet.ajax.min.js"></script>
+<script src="skitracks_tampere.geojson" type="text/javascript"></script>
+
 <!-- Aktiivisen sivun otsikon korostus -->
 <style>
 #nav_button_1 {
@@ -65,8 +70,8 @@
 ################################################
 -->
 <div id="content_map">
-	<script src="leaflet-0.7/leaflet-src.js"></script>
 	<script type="text/javascript">
+	
 	
 // Base layers and layercontrol setup
 	
@@ -75,24 +80,46 @@
 					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
 	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
 					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
-	
+	var skiStyle = {
+		"color": "#ff0037",
+		"weight": 7,
+		"dashArray": "3 3",
+		"lineCap": "butt",
+		"opacity": 1
+	};  
+	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {
+		style: skiStyle
+	}); 
+					
 	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', maxZoom: 16}),
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
 
+
+
+		
 	var map = L.map('content_map', {
 		center: [61.50240, 23.8090],
 		zoom: 14,
 		layers: [mtb]
 	});
-	
+
 	var baseLayers = {
 		"MTB-kartta": mtb,
-		"MML-kartta": mml
+		"MML-kartta": mml,
 	};
 
-var layerControl = L.control.layers( baseLayers, null, {visible: true, position: 'topright', collapsed: false });
+	var overlayMaps = {
+		"Ladut": ski,
+	};
+
+	
+	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false });
 
 map.addControl(layerControl);
+
+
+
+layer.bringToFront(geojsonLayer)
 	</script>
 </div>
 
