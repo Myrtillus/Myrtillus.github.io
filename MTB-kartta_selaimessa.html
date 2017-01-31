@@ -73,13 +73,14 @@
 	<script type="text/javascript">
 	
 	
-// Base layers and layercontrol setup
-	
+	// Base layer data attributions
 	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
 					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
 	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
 					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
+					
+	// Styling for the ski overlay
 	var skiStyle = {
 		"color": "#ff0037",
 		"weight": 7,
@@ -87,39 +88,32 @@
 		"lineCap": "butt",
 		"opacity": 1
 	};  
-	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {
-		style: skiStyle
-	}); 
-					
+
+    // Creating layers (making the geojson layer (possible) puts it on top)
+	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
 	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', maxZoom: 16}),
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
 
-
-
-		
+	// Creating the main map, with mtb-layer as default
 	var map = L.map('content_map', {
 		center: [61.50240, 23.8090],
 		zoom: 14,
 		layers: [mtb]
 	});
 
+	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
 		"MTB-kartta": mtb,
 		"MML-kartta": mml,
 	};
-
 	var overlayMaps = {
 		"Ladut": ski,
 	};
-
-	
 	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false });
+	map.addControl(layerControl);
 
-map.addControl(layerControl);
-
-
-
-layer.bringToFront(geojsonLayer)
+	// Just to (try and) make sure...
+	layer.bringToFront(geojsonLayer)
 	</script>
 </div>
 
