@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MTB-kartat: Garminiin">
+<meta name="author" content="Tapio K.">
+<!-- <link rel="icon" href="../../favicon.ico"> Tähän ikoni sitten kun sellainen on-->
+
+<title>MTB-kartta: karttaselite</title>
+
+<!-- Käytettävä CSS-tyyli -->
+<link href="TK.css" rel="stylesheet">
+<link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
+
+<!-- Fontit Google Fontsista -->
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+
+
+
+<!-- Aktiivisen sivun otsikon korostus -->
+<style>
+#nav_button_3 {
+	border-bottom:solid #f2a766 1px;
+	border-top:solid #f2a766 1px;
+}
+#nav_button_3 a:hover, a:active {  
+	text-decoration:none; 
+	color:#f2a766;  
+}
+</style>
+
+</head>
+<body>
+<div id="wrapper">
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
+################################################
+-->
+<div id="header">
+	<div class="column" style="width:860px;">
+		<div id="logo_box" style="display:inline-block; vertical-align:top; width:90px; height:120px;">
+		<img src="./images/gps-symbol_medium.png" alt="Logo" style="opacity:0.9; filter:alpha(opacity=90); float:left; margin-top:5px;">
+		</div>
+		<div id="title_and_links" style="display:inline-block; vertical-align:top; width:400px; padding-top:20px;  text-align:left;">
+			<paaotsikko>
+			MTB-KARTTA
+			</paaotsikko><br/>
+			<div class="nav_container">
+				<div id="nav_button_1" class="nav_button"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></div>
+				<div id="nav_button_2" class="nav_button"><a href="MTB-kartta_garminiin.html">Garminiin</a></div>
+				<div id="nav_button_3" class="nav_button"><a href="MTB-kartta_karttaselite.html">Karttaselite</a></div>
+				<div id="nav_button_4" class="nav_button"><a href="MTB-kartta_ohjeita.html">Ohjeita</a></div>
+			</div>
+		</div>
+		<div id="contact" style="float:right; vertical-align:top; width:300px; height:80px; padding-top:15px; padding-right:20px;  text-align:right;">
+		<copyright>
+<!--		Palaute: <a href="xxx@yyy.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>-->
+		</copyright>
+		</div>
+	</div>
+</div>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
+################################################
+-->
+	<div id="background">
+		<leipateksti>
+		<div class="content_column">
+		<p>&nbsp;</p>
+		<alaotsikko>
+		Symbolit
+		</alaotsikko>
+		<hr>	
+		<p>&nbsp;</p>	
+		<pikkuotsikko>		
+		Polut/ajourat ymv. (symboleissa gps-version vasemmalla, selainversion oikealla)
+		</pikkuotsikko>
+
+			
+			<div id="paths_left" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+
+				<div class="symbol" id="mtbp0-">&nbsp;</div><div class="symbol" id="mtbp0-_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 0-</b><small><br/><i>highway=path/track/footway, mtb:scale=0-</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Hoidetun hiekkatien luokkaa. Ei käytännössä lainkaan esteitä reitillä. Ajettavissa kokolailla millä tahansa pyörällä ja kevyen liikenteen väylälle riittävin taidoin.
+				</p></div>	
+				
+				<div class="symbol" id="mtbp0">&nbsp;</div><div class="symbol" id="mtbp0_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 0</b><small><br/><i>highway=path/track/footway, mtb:scale=0</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Neulaspolku tai muutoin kovapintainen väylä. Ei mainittavasti kiviä, juuria tai muita esteitä. Loivat mutkat ja nousut. Ei vaadi erityisiä maastoajotaitoja ja menee cyclollakin huoletta.
+				</p></div>
+				
+				<div class="symbol" id="mtbp00">&nbsp;</div><div class="symbol" id="mtbp00_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 0+</b><small><br/><i>highway=path/track/footway, mtb:scale=0+</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Edelleen kova ajoalusta, mutta siellä täällä hieman kiviä tai juuria. Ei jyrkkiä mutkia tai nousuja. Yhä mukavasti cyclolla ajettavissa pienellä tarkkaavaisuudella.
+				</p></div>	
+				
+				<div class="symbol" id="mtbp1">&nbsp;</div><div class="symbol" id="mtbp1_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 1</b><small><br/><i>highway=path/track/footway, mtb:scale=1</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Mahdollisesti epävarmempaa alustaa ja paikoittain pieniä kiviä tai juuria. Esteet kuitenkin pääosin ylitettävissä maasturilla kiertämättä. Jyrkähköjä mutkia, pidemmät nousut alle 40%. Maasturilla perustaidoilla leppoista, ueimmiten menee vielä cyclollakin kovemmalla keskittymisellä.
+				</p></div>
+				
+				<div class="symbol" id="mtbp2">&nbsp;</div><div class="symbol" id="mtbp2_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 2</b><small><br/><i>highway=path/track/footway, mtb:scale=2</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Alusta usein epävarmaa, väylällä isompia kiviä ja juuria. Myös pienempiä pudotuksia voi löytyä. Vaatii keskittymistä jo kokeneemmiltakin ja ylämäkeen (max. 70%) sekä etenkään märällä ei mene valtaosalta ihan heittämällä. Cyclo kulkee olalla.
+				</p></div>	
+				
+				<div class="symbol" id="mtbp3">&nbsp;</div><div class="symbol" id="mtbp3_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 3</b><small><br/><i>highway=path/track/footway, mtb:scale=3</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Irtomaata ja paljon isoja kiviä, juuria sekä muita esteitä. Isoja pudotuksia ja jyrkkyydeltään yli 70% mäkiä, lähes mahdoton ajaa ylämäkeen. Vaatii kokeneemmiltakin tiukkaa keskittymistä ja aloittelijat tunkkaavat liki tauotta. Cycloa kannettava varoen ettei kompuroi.
+				</p></div>	
+				
+				<div class="symbol" id="mtbp4">&nbsp;</div><div class="symbol" id="mtbp4_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 4</b><small><br/><i>highway=path/track/footway, mtb:scale=4</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Isoja kivenjärkäleitä ynnä muuta, joiden ohittaminenkin voi vaatia pyörän pompottelua. Rattaita uhkaavia pudotuksia. Eteneminen ylämäkeen valtaosalle mahdotonta j<br/>	a tasaisellakin alkaa vaatia trials-kuskin taitoja. Cycloa voi heitellä eteenpäin kävelyn helpottamiseksi.
+				</p></div>	
+				
+				<div class="symbol" id="mtbp5">&nbsp;</div><div class="symbol" id="mtbp5_w">&nbsp;</div>
+				<div class="symbol_title"><b>Vaikeusaste 5</b><small><br/><i>highway=path/track/footway, mtb:scale=5</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Kivenlohkareita, kaatuneita puita ynnä muuta. Eteneminen enemmän polkupyörätrialsia kuin maastopyöräilyä, hyvin harva suoriutuu ajaen. Cyclon kanssa kannattaa kääntyä ympäri, ei välttämättä kestä kaatuilua kävellessä.
+				</p></div>				
+			</div>
+				
+			<div id="paths_right" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+				
+				<div class="symbol" id="footway">&nbsp;</div><div class="symbol" id="footway_w">&nbsp;</div>
+				<div class="symbol_title"><b>Jalankulkuväylä</b><small><br/><i>highway=footway, ei (sallivia) polkupyörämääritteitä</i></small></div>
+				<div class="symbol_desc">
+				<p>Väylä joka on erikseen merkitty jalankululle. Pyöräily voi olla kielletty omalla merkillään tai jalankulkumerkinnän kautta. 
+				</p></div><br/>
+
+				<div class="symbol" id="cycleway">&nbsp;</div><div class="symbol" id="cycleway_w">&nbsp;</div>
+				<div class="symbol_title"><b>Pyörätie/kevyen liikenteen väylä</b><small><br/><i>highway=cycleway</i></small></div>
+				<div class="symbol_desc">
+				<p>Väylä, joka on merkitty pyörätieksi tai kevyen liikenteen väyläksi. Oletuksena, että näin ollen ajettavissa millä tahansa polkupyörällä.
+				</p></div><br/>
+				
+				<div class="symbol" id="forbidden">&nbsp;</div><div class="symbol" id="forbidden_w">&nbsp;</div>
+				<div class="symbol_title"><b>Ajokelvoton/ajo kielletty</b><small><br/><i>highway=path/track/footway, mtb:scale=-1</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Reitti on täysin ajokelvoton esimerkiksi umpeenkasvamisen myötä. Vaihtoehtoisesti kulku on kielletty vaikkapa yksityisen piha-alueen vuoksi. Tulkinta pyörän kantamisen kannalta harkinnan mukaan kartalta tai paikan päällä.
+				</p></div><br>
+				
+				<div class="symbol" id="wet">&nbsp;</div><div class="symbol" id="wet_w">&nbsp;</div>
+				<div class="symbol_title"><b>Märkä polku/ajoura</b><small><br/><i>highway=path/track/footway, surface=mud</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Merkintä muun polkuviivan vieressä. Reitti on erityisen märkä ja mahdollisesti upottava varsinkin sateiden jälkeen ja lumien sulaessa. Mahdollisesti ei kuljettavissa kesäisin polkien lainkaan tai vain läskipyörällä. Paikalla saattaa merkinnästä huolimatta olla pitkospuut.
+				</p></div><br>	
+				
+				<div class="symbol" id="vegetation">&nbsp;</div><div class="symbol" id="vegetation_w">&nbsp;</div>
+				<div class="symbol_title"><b>Rehevöitynyt polku/ajoura</b><small><br/><i>highway=path/track/footway, obstacle=vegetation</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				Merkintä muun polkuviivan vieressä. Reitillä kasvaa runsaasti heinää, taimikkoa tai muuta vastaavaa. Reitti on kasvillisuudesta riippuen ajettavissa kohtalaisesti, heikosti tai ei lainkaan.
+				</p></div><br>	
+
+				<div class="symbol" id="path_types">&nbsp;</div><div class="symbol" id="path_types_w">&nbsp;</div>
+				<div class="symbol_title"><b>Väylän merkittävyys</b><small><br/><i>highway=path/track/footway, width=X.X, trail_visibility=X</i></small></div>
+				<div class="symbol_desc">
+				<p>
+				1. Väylä erottuu heikosti esimerkiksi vähäisen käytön tai alustan ominaisuuksien vuoksi.<br>
+				2. Väylän leveys on 0,5m tai vähemmän.<br>
+				3. Väylän leveys on vähintään 0,6m, mutta kyseessä ei ole esim. maastoautolle riittävä ajoura.<br>
+				4. Väylä on riittävän leveä kookkaamman nelipyöräisen ajoneuvonkin kuljettavaksi.
+				</p></div>
+				
+			</div>
+			<pikkuotsikko>
+			<p>&nbsp;</p>
+			Tiet
+			</pikkuotsikko>	
+			<br/>
+			<div id="roads_left" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+				<div class="symbol" id="motorway">&nbsp;</div><div class="symbol" id="motorway_w">&nbsp;</div>
+				<div class="symbol_title"><b>Moottoritie</b><small><br/><i>highway=motorway</i></small></div>
+				<div class="symbol_desc">
+				Moottoritie tai moottoriliikennetie. Pyöräily kielletty.
+				</p></div><br/>
+
+				<div class="symbol" id="trunk">&nbsp;</div><div class="symbol" id="trunk_w">&nbsp;</div>
+				<div class="symbol_title"><b>Autotie, pääväylä</b><small><br/><i>highway=trunk</i></small></div>
+				<div class="symbol_desc">
+				<p>Valtatie tai muu pääväylä. Pyöräily useimmiten kielletty, mutta vaihtelee tapauskohtaisesti.
+				</p></div><br/>
+
+				<div class="symbol" id="primary">&nbsp;</div><div class="symbol" id="primary_w">&nbsp;</div>
+				<div class="symbol_title"><b>Autotie, merkittävä</b><small><br/><i>highway=primary/secondary/tertiary</i></small></div>
+				<div class="symbol_desc">
+				<p>Merkittävä kaupunkien välinen tai kaupungin sisäinen tie.
+				</p></div><br/>
+			</div>
+			<div id="roads_right" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+				<div class="symbol" id="residential">&nbsp;</div><div class="symbol" id="residential_w">&nbsp;</div>
+				<div class="symbol_title"><b>Autotie, paikallinen</b><small><br/><i>highway=residential</i></small></div>
+				<div class="symbol_desc">
+				<p>Esimerkiksi asuinalueen sisällä kulkeva pienehkö tie, joka ei kuitenkaan ole varsinainen pihakatu.
+				</p></div><br/>
+
+				<div class="symbol" id="service">&nbsp;</div><div class="symbol" id="service_w">&nbsp;</div>
+				<div class="symbol_title"><b>Autotie, vähäinen</b><small><br/><i>highway=service</i></small></div>
+				<div class="symbol_desc">
+				<p>Kaupunkialueella usein esimerkiksi piha- tai huoltokatu. Syrjemmässä monesti päällystämätön hiekkatie.
+				</p></div><br/>
+			</div>
+			<pikkuotsikko>
+			<p>&nbsp;</p>
+			Muut
+			</pikkuotsikko>	
+			<br/>
+			<div id="misc_left" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+				<div class="symbol" id="continue">&nbsp;</div><div class="symbol" id="continue_w">&nbsp;</div>
+				<div class="symbol_title"><b>Väylä jatkuu</b><small><br/><i>fixme=continue</i></small></div>
+				<div class="symbol_desc">
+				Väylä jarkuu merkkiä pidemmälle, mutta sitä ei ole lisätty karttaan. Tee päivän hyvä työ tsekkaamalla minne, jos minnekään, polku johtaa ja täydennä tieto OpenStreetMapiin.
+				</p></div><br/>
+
+				<div class="symbol" id="resurvey">&nbsp;</div><div class="symbol" id="resurvey_w">&nbsp;</div>
+				<div class="symbol_title"><b>Uudelleenkartoitettava paikka</b><small><br/><i>fixme=resurvey</i></small></div>
+				<div class="symbol_desc">
+				<p>Tässä kohtia on kartassa puutteita tai mahdollinen virhe. Epäkohdan tarkistaminen ja korjaaminen jos paikalle sattuu on jälleen kaikkien kartan käyttäjien etu.
+				</p></div><br/>
+			</div>
+			<div id="misc_right" class="column" style="display:inline-block; width:410px; vertical-align:top; line-height:1.0;">
+				<div class="symbol" id="noexit">&nbsp;</div><div class="symbol" id="noexit_w">&nbsp;</div>
+				<div class="symbol_title"><b>Väylä päättyy</b><small><br/><i>noexit=yes</i></small></div>
+				<div class="symbol_desc">
+				<p>Väylä päättyy umpikujaan. Eteenpäin saattaa päästä vielä jalan, mutta pyöräiltävää polkua sinne ei kulje. Väylät joilla pyöräily on kielletty tulisi näiden sijaan merkitä tagilla mtb:scale=-1.
+				</p></div><br/>
+			</div>
+		<alaotsikko>
+		<p>&nbsp;</p>
+		Yleistä
+		</alaotsikko>
+		<hr>
+		<p>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/></p>
+		</leipateksti>
+		</div>
+	</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
+###################################################
+-->
+<div id="footer">
+	<div class="column" style="line-height:0.5; width:860px; padding-top:5px; padding-left:-5px;">
+	<copyright>
+	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+	MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. Tähän perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>.<br/>
+	MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+	</copyright>
+	</div>
+</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
+###################################################
+-->
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
