@@ -218,6 +218,23 @@ a:active {
 	text-decoration:none;
 }
 
+/* Styles for map navigation */
+maplink {
+	font:100% Asap,sans-serif;
+	text-color: #ffffff;
+}
+
+
+table, th, td {
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
 /* List styles */
 ul {
   list-style-type: disc;

@@ -11,15 +11,15 @@
 
 <!-- Käytettävä CSS-tyyli -->
 <link href="TK.css" rel="stylesheet">
-<link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
+<link rel="stylesheet" href="./leaflet/leaflet.css"/>
 
 <!-- Fontit Google Fontsista -->
 <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
 
 <!-- Scriptit -->
-<script src="leaflet-0.7/leaflet-src.js"></script>
-<script src="leaflet-0.7/leaflet.ajax.min.js"></script>
+<script src="leaflet/leaflet-src.js"></script>
+<script src="leaflet/leaflet.ajax.min.js"></script>
 <script src="skitracks_tampere.geojson" type="text/javascript"></script>
 <!-- Aktiivisen sivun otsikon korostus -->
 <style>
@@ -69,7 +69,7 @@
 ################################################
 -->
 <main class="site-content">
-<div id="mapscreen" class="column-map">
+<div id="map" class="column-map">
 	<script type="text/javascript">
 	
 	
@@ -99,7 +99,7 @@
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});
 		
 	// Creating the main map, with mtb-layer as default
-	var map = L.map('mapscreen', {
+	var map = L.map('map', {
 		center: [61.4781,23.8164],
 		zoom: 15,
 		layers: [mtb]

@@ -70,7 +70,7 @@
 ################################################
 -->
 <main class="site-content">
-<div id="mapscreen" class="column-map">
+<div id="map" class="column-map">
 	<script type="text/javascript">
 	
 	
@@ -96,7 +96,7 @@
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
 
 	// Creating the main map, with mtb-layer as default
-	var map = L.map('mapscreen', {
+	var map = L.map('map', {
 		center: [61.50240, 23.8090],
 		zoom: 13,
 		layers: [mtb]
