@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MTB-kartat: Garminiin">
+<meta name="author" content="Tapio K.">
+<!-- <link rel="icon" href="../../favicon.ico"> Tähän ikoni sitten kun sellainen on-->
+
+<title>MTB-kartta - selaimessa</title>
+
+<!-- Käytettävä CSS-tyyli -->
+<link href="TK.css" rel="stylesheet">
+<link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
+
+<!-- Fontit Google Fontsista -->
+<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+
+<!-- Scriptit -->
+<script src="leaflet-0.7/leaflet-src.js"></script>
+<script src="leaflet-0.7/leaflet.ajax.min.js"></script>
+<script src="skitracks_tampere.geojson" type="text/javascript"></script>
+<!-- Aktiivisen sivun otsikon korostus -->
+<style>
+#nav_button_1 {
+	border-bottom:solid #f2a766 1px;
+	border-top:solid #f2a766 1px;
+}
+#nav_button_1 a:hover, a:active {  
+	text-decoration:none; 
+	color:#f2a766;  
+}
+</style>
+
+</head>
+<body class="site">
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
+################################################
+-->
+<header>
+	<div class="column-header">
+		<div class="logo_box">
+		<img src="./images/gps-symbol_medium.png" alt="Logo" style="opacity:0.9; filter:alpha(opacity=90); float:left; margin-top:5px;">
+		</div>
+		<div class="title_and_links">
+		<logotitle>
+		MTB-KARTTA
+		</logotitle><br/>
+			<div class="nav_container">
+				<div id="nav_button_1" class="nav_button"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></div>
+				<div id="nav_button_2" class="nav_button"><a href="MTB-kartta_garminiin.html">Garminiin</a></div>
+				<div id="nav_button_3" class="nav_button"><a href="MTB-kartta_karttaselite.html">Karttaselite</a></div>
+				<div id="nav_button_4" class="nav_button"><a href="MTB-kartta_ohjeita.html">Ohjeita</a></div>
+			</div>
+		</div>
+		<div class="contact">
+		<copyright>
+<!--		Palaute: <a href="xxx@yyy.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>-->
+		</copyright>
+		</div>
+	</div>
+</header>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
+################################################
+-->
+<main class="site-content">
+<div id="mapscreen" class="column-map">
+	<script type="text/javascript">
+	
+	
+	// Base layer data attributions
+	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+	var arpAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
+					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
+					
+	// Styling for the ski overlay
+	var skiStyle = {
+		"color": "#ff0037",
+		"weight": 7,
+		"dashArray": "3 3",
+		"lineCap": "butt",
+		"opacity": 1
+	};  
+
+    // Creating layers (making the geojson layer (possible) puts it on top)
+	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
+	var	mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.jpg', {id: 'MTB-kartta', minZoom: 15, maxZoom: 15}),
+		arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
+		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});
+		
+	// Creating the main map, with mtb-layer as default
+	var map = L.map('mapscreen', {
+		center: [61.4781,23.8164],
+		zoom: 15,
+		layers: [mtb]
+	});
+
+	// Defining the layer(group)s for the layercontrol and creating the control
+	var baseLayers = {
+		"MTB-kartta": mtb,
+		"Arpo-kartta": arp,
+		"MML-kartta": mml,
+	};
+	var overlayMaps = {
+		"Ladut": ski,
+	};
+	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false });
+	map.addControl(layerControl);
+
+	// Just to (try and) make sure...
+	layer.bringToFront(geojsonLayer)
+	</script>
+</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
+###################################################
+-->
+<footer>
+	<div class="column-footer">
+	<div class="column" style="line-height:0.5; width:860px; padding-top:5px; padding-left:-5px;">
+	<copyright>
+	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+	MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. Tähän perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>.<br/>
+	MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+	</copyright>
+	</div>
+</footer>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
+###################################################
+-->
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
