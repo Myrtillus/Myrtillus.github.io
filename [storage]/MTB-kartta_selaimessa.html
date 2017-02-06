@@ -7,7 +7,7 @@
 <meta name="author" content="Tapio K.">
 <!-- <link rel="icon" href="../../favicon.ico"> Tähän ikoni sitten kun sellainen on-->
 
-<title>MTB-kartat: selainversio</title>
+<title>MTB-kartta - selaimessa</title>
 
 <!-- Käytettävä CSS-tyyli -->
 <link href="TK.css" rel="stylesheet">
@@ -16,7 +16,6 @@
 <!-- Fontit Google Fontsista -->
 <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'> 
 
 <!-- Scriptit -->
 <script src="leaflet-0.7/leaflet-src.js"></script>
@@ -34,22 +33,23 @@
 	color:#f2a766;  
 }
 </style>
+
 </head>
-<body>
+<body class="site">
 <!--
 ################################################
 ###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
 ################################################
 -->
-<div id="header">
-	<div class="column" style="width:860px;">
-		<div id="logo_box" style="display:inline-block; vertical-align:top; width:90px; height:120px;">
+<header>
+	<div class="column-header">
+		<div class="logo_box">
 		<img src="./images/gps-symbol_medium.png" alt="Logo" style="opacity:0.9; filter:alpha(opacity=90); float:left; margin-top:5px;">
 		</div>
-		<div id="title_and_links" style="display:inline-block; vertical-align:top; width:400px; padding-top:20px;  text-align:left;">
-			<paaotsikko>
-			MTB-KARTTA
-			</paaotsikko><br/>
+		<div class="title_and_links">
+		<logotitle>
+		MTB-KARTTA
+		</logotitle><br/>
 			<div class="nav_container">
 				<div id="nav_button_1" class="nav_button"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></div>
 				<div id="nav_button_2" class="nav_button"><a href="MTB-kartta_garminiin.html">Garminiin</a></div>
@@ -57,19 +57,20 @@
 				<div id="nav_button_4" class="nav_button"><a href="MTB-kartta_ohjeita.html">Ohjeita</a></div>
 			</div>
 		</div>
-		<div id="contact" style="float:right; vertical-align:top; width:300px; height:80px; padding-top:15px; padding-right:20px;  text-align:right;">
+		<div class="contact">
 		<copyright>
 <!--		Palaute: <a href="xxx@yyy.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>-->
 		</copyright>
 		</div>
 	</div>
-</div>
+</header>
 <!--
 ################################################
 ###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
 ################################################
 -->
-<div id="content_map">
+<main class="site-content">
+<div id="map" class="column-map">
 	<script type="text/javascript">
 	
 	
@@ -91,13 +92,13 @@
 
     // Creating layers (making the geojson layer (possible) puts it on top)
 	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
-	var	mtb	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'mtb-kartta', maxZoom: 16}),
+	var	mtb	= L.tileLayer('file:///D:/Programs/TileMill-v0.10.1/project/MTB-Tampere/tiles/{z}/{x}/{y}.jpg', {id: 'mtb-kartta', minzoom: 13, maxZoom: 13}),
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
 
 	// Creating the main map, with mtb-layer as default
-	var map = L.map('content_map', {
+	var map = L.map('map', {
 		center: [61.50240, 23.8090],
-		zoom: 14,
+		zoom: 13,
 		layers: [mtb]
 	});
 
@@ -116,13 +117,13 @@
 	layer.bringToFront(geojsonLayer)
 	</script>
 </div>
-
 <!--
 ###################################################
 ###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
 ###################################################
 -->
-<div id="footer">
+<footer>
+	<div class="column-footer">
 	<div class="column" style="line-height:0.5; width:860px; padding-top:5px; padding-left:-5px;">
 	<copyright>
 	OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
@@ -130,12 +131,13 @@
 	MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
 	</copyright>
 	</div>
-</div>
+</footer>
 <!--
 ###################################################
 ###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
 ###################################################
 -->
+</div>
 </body>
 </html>
 
