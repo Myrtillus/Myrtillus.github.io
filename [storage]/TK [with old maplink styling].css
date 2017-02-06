@@ -1,0 +1,252 @@
+/* CSS reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display:block;
+}
+ol, ul {
+	list-style:none;
+}
+blockquote, q {
+	quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:'';
+	content:none;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+
+/* Site areas */
+html {
+	height: 100%;
+	overflow-y: scroll;
+}
+header {
+	height:125px;
+	width:100%;
+	background-color:#3b3b3b;
+}
+footer {
+    height: 50px; 
+    width:100%;
+    left: 0;
+    bottom: 0; 
+	background-color:#3b3b3b;
+}
+/* Wrapper for whole site */
+.site {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+/* Wrapper for the non-header/footer part of site */
+.site-content {
+  flex: 1;
+  background-color:#e2e2e2;
+}
+/* Main content column (separately for map view) and equivalents for header/footer */
+.column-map {
+	width: 100%;
+	height: calc(100% - 50px);
+}
+.column-main {
+	width:840px;
+	min-height: calc(100% - 50px); /* Height =  everything below header minus the footer */
+	margin:0px auto;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:0px;
+	padding-bottom:0px;
+	text-align:left;
+	background-color:#ffffff;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.column-header {
+	width: 840px;
+	margin: auto;
+}
+.column-footer {
+	width: 840px;
+	margin: auto;
+}
+/* Page title and navigation elements */
+.logo_box {
+	display:inline-block; 
+	vertical-align:top; 
+	width:90px; 
+	height:120px;
+}
+.title_and_links {
+	display:inline-block; 
+	vertical-align:top; 
+	width:400px; 
+	padding-top:21px;  
+	text-align:left;
+}
+.nav_container {
+	width:350px; 
+	line-height:15px;
+	padding-left:5px;
+	padding-top:1px;
+}
+.nav_button {
+	font:90% Asap,sans-serif;
+	display:inline-block;
+	vertical-align:top;
+	width:77px;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+	border-bottom:solid #e2e2e2 1px;
+	border-top:solid #e2e2e2 1px;
+}
+.contact {
+	float:right; 
+	vertical-align:top; 
+	width:300px; 
+	height:80px; 
+	padding-top:15px; 
+	padding-right:20px;  
+	text-align:right;
+}
+
+/* Text styles */
+logotitle {
+	font:400% abel,sans-serif;
+	font-weight:bold;
+	letter-spacing: 1px;
+	line-height:80%;
+	text-align:center;
+	vertical-align:top;
+	color:#e2e2e2;
+}
+title_1 {
+	font:150% abel,sans-serif;
+	font-weight:700;
+	line-height:150%;
+	text-align:left;
+	color:#3b3b3b;
+}
+title_2 {
+	font:130% abel,sans-serif;
+	font-weight:700;
+	line-height:150%;
+	text-align:left;
+	color:#3b3b3b;
+}
+bodytext {
+	font:80% Asap,sans-serif;
+	font-style:regular;
+	line-height:150%;
+	text-align:left;
+	color:#000000;
+}
+copyright {
+	font:70% Asap,sans-serif;
+	font-weight:400;
+	line-height:50%;
+	text-align:left;
+	color:#7f7f7f;
+}
+b {
+	font-weight:700;
+	color:#3b3b3b;
+}
+i {
+	font-style: oblique;
+}
+
+small {
+	font-size: 70%;
+}
+hr {
+    display: block;
+    height: 0px;
+    border: 0;
+    border-top: 2px solid #f1f1f1;
+	margin: 0;
+    padding: 0;
+}
+
+/* Link styles */
+a {
+	font:100% Asap,sans-serif;
+}
+a:visited {
+	color:#f2a766; 
+	background:transparent; 
+	text-decoration:none;
+}
+a:link {
+	color:#f2a766; 
+	background:transparent; 
+	text-decoration:none;
+}
+a:hover {
+	color:#f87907; 
+	background:transparent; 
+	text-decoration:none;
+}
+a:active {
+	color:#f87907; 
+	background:transparent; 
+	text-decoration:none;
+}
+
+/* Styles for map navigation */
+.maplink {
+	font:100% Asap,sans-serif;
+	text-color: #000000;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #ffffff;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.maplink:hover {
+	text-color: #000000;
+	background: #f4f4f4;
+}
+/* Styling for quick trabel buttons */
+#quickTravel {
+  height: 26px; 
+  width: 80px;  
+}
+
+
+/* List styles */
+ul {
+  list-style-type: disc;
+  margin-left: 15px;
+}
+ul ul {
+  list-style-type: circle;
+  margin-left: 15px;
+}

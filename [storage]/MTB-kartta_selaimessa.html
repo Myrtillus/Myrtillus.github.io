@@ -11,15 +11,15 @@
 
 <!-- Käytettävä CSS-tyyli -->
 <link href="TK.css" rel="stylesheet">
-<link rel="stylesheet" href="./leaflet-0.7/leaflet.css"/>
+<link rel="stylesheet" href="./leaflet/leaflet.css"/>
 
 <!-- Fontit Google Fontsista -->
 <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
 
 <!-- Scriptit -->
-<script src="leaflet-0.7/leaflet-src.js"></script>
-<script src="leaflet-0.7/leaflet.ajax.min.js"></script>
+<script src="leaflet/leaflet-src.js" type="text/javascript"></script>
+<script src="leaflet/leaflet.ajax.min.js" type="text/javascript"></script>
 <script src="skitracks_tampere.geojson" type="text/javascript"></script>
 
 <!-- Aktiivisen sivun otsikon korostus -->
@@ -72,16 +72,7 @@
 <main class="site-content">
 <div id="map" class="column-map">
 	<script type="text/javascript">
-	
-	
-	// Base layer data attributions
-	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
-					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
-	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
-					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
-					
-	// Styling for the ski overlay
+	// Styling the ski overlay
 	var skiStyle = {
 		"color": "#ff0037",
 		"weight": 7,
@@ -89,31 +80,82 @@
 		"lineCap": "butt",
 		"opacity": 1
 	};  
-
+	
     // Creating layers (making the geojson layer (possible) puts it on top)
 	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
-	var	mtb	= L.tileLayer('file:///D:/Programs/TileMill-v0.10.1/project/MTB-Tampere/tiles/{z}/{x}/{y}.jpg', {id: 'mtb-kartta', minzoom: 13, maxZoom: 13}),
-		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'mml-kartta', maxZoom: 18});
-
-	// Creating the main map, with mtb-layer as default
-	var map = L.map('map', {
-		center: [61.50240, 23.8090],
-		zoom: 13,
-		layers: [mtb]
-	});
+	var	mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.jpg', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),
+		arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
+		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
 
 	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
 		"MTB-kartta": mtb,
+		"Arpo-kartta": arp,
 		"MML-kartta": mml,
 	};
 	var overlayMaps = {
 		"Ladut": ski,
 	};
-	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false });
+
+	// Base layer data attributions
+	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+	var arpAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+	var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
+					'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
+
+	// Some layer needs to be added individually to the map because 
+	// the movement buttons have 'onAdd'. Could most likely be simplified.
+	var map = L.map('map', { layers: [mtb] }).setView([61.4781,23.8164], 15);
+	L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.jpg').addTo(map);	
+	
+	// Defining the buttons for moving the view
+	var goTampere = L.Control.extend({
+	  options: {position: 'topleft'},
+
+	  onAdd: function (map) {
+			  this._div = L.DomUtil.create('div', 'goTampere');
+			  this._div.innerHTML = "<div class='maplink'>Tampere</div>" ;
+			  L.DomEvent.on(this._div, "click", this._click )
+			  return this._div;          
+	  },
+
+	  _click: function(e){
+		L.DomEvent.stop(e);
+		map.setView(new L.LatLng(61.4781,23.8164));
+	  },
+
+	});
+
+	var goOulu = L.Control.extend({
+	  options: {position: 'topleft'},
+
+	  onAdd: function (map) {
+			  this._div = L.DomUtil.create('div', 'goOulu');
+			  this._div.innerHTML = "<div class='maplink'>Oulu</div>" ;
+			  L.DomEvent.on(this._div, "click", this._click )
+			  return this._div;          
+	  },
+
+	  _click: function(e){
+		L.DomEvent.stop(e);
+		map.setView(new L.LatLng(65.0000,25.6000));
+	  },
+
+	});
+
+	// Adding the buttons for moving the view
+	map.addControl(new goTampere());
+	map.addControl(new goOulu());
+	
+	// Adding the layer control panel
+	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false, });
 	map.addControl(layerControl);
 
-	// Just to (try and) make sure...
+	// Just to (try and) make sure the ski track overlay draws on ttop of everything else
 	layer.bringToFront(geojsonLayer)
 	</script>
 </div>
