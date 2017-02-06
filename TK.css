@@ -219,20 +219,20 @@ a:active {
 }
 
 /* Styles for map navigation */
-maplink {
+.maplink {
 	font:100% Asap,sans-serif;
-	text-color: #ffffff;
-}
-
-
-table, th, td {
+	text-color: #000000;
     box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #fff;
+	background: #ffffff;
 	border-radius: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+.maplink:hover {
+	text-color: #000000;
+	background: #f4f4f4;
 }
 
 /* List styles */
