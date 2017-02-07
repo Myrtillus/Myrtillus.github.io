@@ -174,14 +174,15 @@ logotitle {
 	padding-left:2px;
 }
 title_1 {
-	font:18pt abel,sans-serif;
+	font:13pt abel,sans-serif;
 	font-weight:700;
+	text-transform: uppercase;
 	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 title_2 {
-	font:15pt abel,sans-serif;
+	font:12pt abel,sans-serif;
 	font-weight:700;
 	line-height:150%;
 	text-align:left;
