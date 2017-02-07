@@ -47,7 +47,7 @@ html {
 	overflow-y: scroll;
 }
 header {
-	height:125px;
+	height:100px;
 	width:100%;
 	background-color:#3b3b3b;
 }
@@ -66,8 +66,8 @@ footer {
 }
 /* Wrapper for the non-header/footer part of site */
 .site-content {
-  flex: 1;
-  background-color:#e2e2e2;
+    flex: 1;
+    background-color:#e2e2e2;
 }
 /* Main content column (separately for map view) and equivalents for header/footer */
 .column-map {
@@ -90,36 +90,62 @@ footer {
 .column-header {
 	width: 840px;
 	margin: auto;
+	padding-top: 4px;
 }
 .column-footer {
 	width: 840px;
 	margin: auto;
+	padding-top: 6px;
+	line-height: 50%;
 }
+/* Top level generic container for actual contents inside main column */
+.column-contentblock {
+	width:100%;
+	padding-top:10px;
+}
+.image-container {
+  text-align: justify;
+  line-height: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.image-container img {
+  display: inline-block;
+}
+
+.image-container:after {
+  content: "";
+  width: 100%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
 /* Page title and navigation elements */
 .logo_box {
 	display:inline-block; 
 	vertical-align:top; 
-	width:90px; 
-	height:120px;
+	width:62px; 
+	height:95px;
 }
 .title_and_links {
 	display:inline-block; 
 	vertical-align:top; 
 	width:400px; 
-	padding-top:21px;  
+	padding-top:12px;  
 	text-align:left;
 }
 .nav_container {
-	width:350px; 
+	width:250px; 
 	line-height:15px;
 	padding-left:5px;
 	padding-top:1px;
 }
 .nav_button {
-	font:90% Asap,sans-serif;
+	font:10pt Asap,sans-serif;
 	display:inline-block;
 	vertical-align:top;
-	width:77px;
+	width:119px; /* Double width with reduced number of buttons */
 	margin:0px;
 	padding:0px;
 	text-align:center;
@@ -138,39 +164,40 @@ footer {
 
 /* Text styles */
 logotitle {
-	font:400% abel,sans-serif;
+	font:36pt abel,sans-serif;
 	font-weight:bold;
 	letter-spacing: 1px;
-	line-height:80%;
+	line-height:100%;
 	text-align:center;
 	vertical-align:top;
 	color:#e2e2e2;
+	padding-left:2px;
 }
 title_1 {
-	font:150% abel,sans-serif;
+	font:18pt abel,sans-serif;
 	font-weight:700;
 	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 title_2 {
-	font:130% abel,sans-serif;
+	font:15pt abel,sans-serif;
 	font-weight:700;
 	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 bodytext {
-	font:80% Asap,sans-serif;
+	font:10pt Asap,sans-serif;
 	font-style:regular;
+	font-weight: 100;
 	line-height:150%;
 	text-align:left;
 	color:#000000;
 }
 copyright {
-	font:70% Asap,sans-serif;
+	font:8pt Asap,sans-serif;
 	font-weight:400;
-	line-height:50%;
 	text-align:left;
 	color:#7f7f7f;
 }
@@ -196,7 +223,7 @@ hr {
 
 /* Link styles */
 a {
-	font:100% Asap,sans-serif;
+	font:90% Asap,sans-serif;
 }
 a:visited {
 	color:#f2a766; 
