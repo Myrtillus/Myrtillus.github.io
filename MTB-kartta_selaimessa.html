@@ -89,7 +89,7 @@
 	
     // Creating layers (making the geojson layer (possible) puts it on top)
 	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
-	var	mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.jpg', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),
+	var	mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),
 		arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
 		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
 
