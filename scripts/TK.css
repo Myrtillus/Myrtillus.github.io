@@ -101,7 +101,7 @@ footer {
 /* Top level generic container for actual contents inside main column */
 .column-contentblock {
 	width:100%;
-	padding-top:10px;
+	padding-top:20px;
 }
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
@@ -110,16 +110,19 @@ footer {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .image-container img {
   display: inline-block;
 }
-
 .image-container:after {
   content: "";
   width: 100%;
   display: inline-block;
   vertical-align: bottom;
+}
+.image-text {
+  display: inline-block;
+  height: 5px; 
+  width: 160px; 
 }
 
 /* Page title and navigation elements */
@@ -144,7 +147,7 @@ footer {
 }
 .nav_button {
 	font:10pt Asap,sans-serif;
-	line-height: 90%;
+	line-height: 120%;
 	display:inline-block;
 	vertical-align:top;
 	width:119px; /* Double width with reduced number of buttons */
@@ -226,7 +229,7 @@ hr {
 
 /* Link styles */
 a {
-	font:90% Asap,sans-serif;
+	font:Asap,sans-serif;
 }
 a:visited {
 	color:#f2a766; 
