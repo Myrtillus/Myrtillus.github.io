@@ -40,7 +40,6 @@ table {
 	border-spacing:0;
 }
 
-
 /* Site areas */
 html {
 	height: 100%;
@@ -77,7 +76,7 @@ footer {
 }
 .column-main {
 	width:840px;
-	min-height: calc(100% - 50px); /* Height =  everything below header minus the footer */
+	min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
 	margin:0px auto;
 	padding-left:10px;
 	padding-right:10px;
@@ -101,7 +100,15 @@ footer {
 /* Top level generic container for actual contents inside main column */
 .column-contentblock {
 	width:100%;
+  overflow: hidden;
 	padding-top:20px;
+}
+/* Half-width column for map legend */
+.column-legend {
+	padding-top:0px;
+  width:410px; 
+  vertical-align:top; 
+  line-height:1.0;
 }
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
@@ -121,7 +128,7 @@ footer {
 }
 .image-text {
   display: inline-block;
-  height: 5px; 
+  height: 5px;
   width: 160px; 
 }
 
@@ -146,13 +153,14 @@ footer {
 	margin-top:-3px;
 }
 .nav_button {
-	font:10pt Asap,sans-serif;
-	line-height: 120%;
+	font:10pt 'Abel',sans-serif;
+	line-height: 100%;
 	display:inline-block;
 	vertical-align:top;
-	width:119px; /* Double width with reduced number of buttons */
+	width:78px;
 	margin:0px;
 	padding:0px;
+  padding-bottom:2px;
 	text-align:center;
 	border-bottom:solid #e2e2e2 1px;
 	border-top:solid #e2e2e2 1px;
@@ -167,9 +175,34 @@ footer {
 	text-align:right;
 }
 
+.symbol {
+	display:inline-block;
+	vertical-align:top;
+	margin-top:5px;
+	width:39px;
+	height:39px;
+}
+.symbol_title {
+	display:inline-block;
+	vertical-align:top;
+	width:300px;
+	height:39px;
+	margin-top:5px;
+	padding-top:3px;
+	padding-left:5px;
+}
+.symbol_desc {
+	display:inline-block;
+	vertical-align:top;
+	margin-top:-5px;
+	padding-left:5px;
+	padding-bottom:15px;
+}	
+
 /* Text styles */
 logotitle {
-	font:36pt abel,sans-serif;
+	font-family:'Abel',sans-serif;
+  font-size:36pt;
 	font-weight:bold;
 	letter-spacing: 1px;
 	line-height:100%;
@@ -179,31 +212,30 @@ logotitle {
 	padding-left:2px;
 }
 title_1 {
-	font:13pt abel,sans-serif;
-	font-weight:700;
+	font:13pt 'Abel',sans-serif;
+  letter-spacing: 0.03em;
+	font-weight:bold;
 	text-transform: uppercase;
 	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 title_2 {
-	font:12pt abel,sans-serif;
-	font-weight:700;
+	font:12pt 'Abel',sans-serif;
+  letter-spacing: 0.03em;
+	font-weight:bold;
 	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 bodytext {
-	font:10pt Asap,sans-serif;
-	font-style:regular;
-	font-weight: 100;
+	font:10pt 'Open Sans',sans-serif;
 	line-height:150%;
 	text-align:left;
 	color:#000000;
 }
 copyright {
-	font:8pt Asap,sans-serif;
-	font-weight:400;
+	font:7pt 'Open Sans',sans-serif;
 	text-align:left;
 	color:#7f7f7f;
 }
@@ -229,7 +261,7 @@ hr {
 
 /* Link styles */
 a {
-	font:Asap,sans-serif;
+	text-decoration:none;
 }
 a:visited {
 	color:#f2a766; 
@@ -252,11 +284,11 @@ a:active {
 	text-decoration:none;
 }
 
-/* Styling quick trabel buttons */
+/* Styling quick tr'Abel' buttons */
 #quickTravel {
 	height: 26px; 
 	width: 86px;  
-	font: 100% Asap,sans-serif;
+	font: 100% 'Open Sans',sans-serif;
 	text-align: left;
 	line-height: 23px;
   border-radius: 2px;
@@ -264,7 +296,7 @@ a:active {
 
 /* Styling leaflet elements to match rest of the site (some not perhaps necessary to include) */
 .leaflet-container {
-	font: 80% "Asap", Arial, Helvetica, sans-serif;
+	font: 80% 'Open Sans', Arial, Helvetica, sans-serif;
 	}
 .leaflet-bar {
 	}
@@ -311,3 +343,106 @@ ul ul {
   list-style-type: circle;
   margin-left: 15px;
 }
+
+/* Images for map legend */
+#motorway {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-12px -14px; 
+}
+#trunk {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-65px -14px; 
+}
+#primary {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-118px -14px; 
+}
+#residential {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-277px -14px; 
+}
+#service {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-330px -14px; 
+}
+
+#mtbp0- {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1496px -93px; 
+}
+#mtbp0 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1549px -93px; 
+}
+#mtbp1 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1655px -93px; 
+}
+#mtbp2 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1708px -93px; 
+}
+#mtbp3 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1761px -93px; 
+}
+#mtbp4 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1814px -93px; 
+}
+#mtbp5 {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1867px -93px; 
+}
+
+
+#footway {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1496px -14px; 
+}
+#cycleway {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-1549px -14px; 
+}
+#forbidden {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-330px -170px; 
+}
+#wet {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-436px -170px; 
+}
+
+
+#continue {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-590px -173px; 
+}
+#resurvey {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-643px -173px; 
+}
+#noexit {
+    background-image:url('../images/lines.png');
+    background-repeat:no-repeat;
+    background-position:-696px -173px; 
+}
+
