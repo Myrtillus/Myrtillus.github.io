@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,9 +89,9 @@
 	
     // Creating layers (making the geojson layer (possible) puts it on top)
 	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
-	var	mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),
-		arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
-		mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
+	var	/*mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),*/
+      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
+      mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
 
 	// Base layer data attributions
 	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -105,7 +105,7 @@
 
 	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
-		"MTB-kartta": mtb,
+/*		"MTB-kartta": mtb,*/
 		"Arpo-kartta": arp,
 		"MML-kartta": mml,
 	};
@@ -115,9 +115,9 @@
 					
 	// Creating the main map, with mtb-layer as default
 	var map = L.map('map', {
-		center: [61.4781,23.8164],
+		center: [61.5110,23.8126],
 		zoom: 15,
-		layers: [mtb]
+		layers: [arp]
 	});					
 
 	// Adding the layer control panel
@@ -157,7 +157,7 @@
 		position: 'topright',
 		states: [{
 			icon: '<p>Tampere</p>',
-			onClick: function(){ map.setView([61.4781,23.8164]); }
+			onClick: function(){ map.setView([61.5110,23.8126]); }
 			}]
 	}).addTo(map);
 
@@ -186,32 +186,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
