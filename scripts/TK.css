@@ -181,6 +181,8 @@ footer {
 	margin-top:5px;
 	width:39px;
 	height:39px;
+  background-image:url('../images/lines.png');
+  background-repeat:no-repeat;
 }
 .symbol_title {
 	display:inline-block;
@@ -190,6 +192,8 @@ footer {
 	margin-top:5px;
 	padding-top:3px;
 	padding-left:5px;
+  line-height:30%;
+	color:#808080;
 }
 .symbol_desc {
 	display:inline-block;
@@ -197,6 +201,8 @@ footer {
 	margin-top:-5px;
 	padding-left:5px;
 	padding-bottom:15px;
+	font:10pt 'Open Sans',sans-serif;
+	line-height:150%;
 }	
 
 /* Text styles */
@@ -221,7 +227,7 @@ title_1 {
 	color:#3b3b3b;
 }
 title_2 {
-	font:12pt 'Abel',sans-serif;
+	font:11pt 'Abel',sans-serif;
   letter-spacing: 0.03em;
 	font-weight:bold;
 	line-height:150%;
@@ -345,104 +351,68 @@ ul ul {
 }
 
 /* Images for map legend */
-#motorway {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.motorway {
     background-position:-12px -14px; 
 }
-#trunk {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.trunk {
     background-position:-65px -14px; 
 }
-#primary {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.primary {
     background-position:-118px -14px; 
 }
-#residential {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.residential {
     background-position:-277px -14px; 
 }
-#service {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.service {
     background-position:-330px -14px; 
 }
-
-#mtbp0- {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp0- {
     background-position:-1496px -93px; 
 }
-#mtbp0 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp0 {
     background-position:-1549px -93px; 
 }
-#mtbp1 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp1 {
     background-position:-1655px -93px; 
 }
-#mtbp2 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp2 {
     background-position:-1708px -93px; 
 }
-#mtbp3 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp3 {
     background-position:-1761px -93px; 
 }
-#mtbp4 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp4 {
     background-position:-1814px -93px; 
 }
-#mtbp5 {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.mtbp5 {
     background-position:-1867px -93px; 
 }
-
-
-#footway {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.footway {
     background-position:-1496px -14px; 
 }
-#cycleway {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.cycleway {
     background-position:-1549px -14px; 
 }
-#forbidden {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.forbidden {
     background-position:-330px -170px; 
 }
-#wet {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.wet {
     background-position:-436px -170px; 
 }
+.vegetation {
+    background-position:-1549px -247px; 
+}
+.path_types {
+    background-position:-1496px -247px; 
+}
 
-
-#continue {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.continue {
     background-position:-590px -173px; 
 }
-#resurvey {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.resurvey {
     background-position:-643px -173px; 
 }
-#noexit {
-    background-image:url('../images/lines.png');
-    background-repeat:no-repeat;
+.noexit {
     background-position:-696px -173px; 
 }
 
