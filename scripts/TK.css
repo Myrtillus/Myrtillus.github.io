@@ -153,15 +153,15 @@ footer {
 	margin-top:-3px;
 }
 .nav_button {
-	font:10pt 'Abel',sans-serif;
-	line-height: 100%;
+	font:11pt 'Abel',sans-serif;
+	line-height: 110%;
 	display:inline-block;
 	vertical-align:top;
 	width:78px;
 	margin:0px;
 	padding:0px;
-  padding-bottom:2px;
 	text-align:center;
+  letter-spacing:0.03em;
 	border-bottom:solid #e2e2e2 1px;
 	border-top:solid #e2e2e2 1px;
 }
@@ -201,7 +201,7 @@ footer {
 	margin-top:-5px;
 	padding-left:5px;
 	padding-bottom:15px;
-	font:10pt 'Open Sans',sans-serif;
+	font:11pt 'Open Sans',sans-serif;
 	line-height:150%;
 }	
 
@@ -222,20 +222,18 @@ title_1 {
   letter-spacing: 0.03em;
 	font-weight:bold;
 	text-transform: uppercase;
-	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 title_2 {
-	font:11pt 'Abel',sans-serif;
+	font:12.5pt 'Abel',sans-serif;
   letter-spacing: 0.03em;
 	font-weight:bold;
-	line-height:150%;
 	text-align:left;
 	color:#3b3b3b;
 }
 bodytext {
-	font:10pt 'Open Sans',sans-serif;
+	font:11pt 'Open Sans',sans-serif;
 	line-height:150%;
 	text-align:left;
 	color:#000000;
