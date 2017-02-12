@@ -90,7 +90,7 @@
     // Creating layers (making the geojson layer (possible) puts it on top)
 	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
 	var	/*mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),*/
-      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'Arpo-kartta', maxZoom: 16}),
+      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'OSM-kartta', maxZoom: 16}),
       mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
 
 	// Base layer data attributions
@@ -106,7 +106,7 @@
 	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
 /*		"MTB-kartta": mtb,*/
-		"Arpo-kartta": arp,
+		"OSM-kartta": arp,
 		"MML-kartta": mml,
 	};
 	var overlayMaps = {
