@@ -12,50 +12,54 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin:0;
-	padding:0;
-	border:0;
-	font-size:100%;
-	font:inherit;
-	vertical-align:baseline;
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display:block;
+  display:block;
 }
 ol, ul {
-	list-style:none;
+  list-style:none;
 }
 blockquote, q {
-	quotes:none;
+  quotes:none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content:'';
-	content:none;
+  content:'';
+  content:none;
 }
 table {
-	border-collapse:collapse;
-	border-spacing:0;
+  border-collapse:collapse;
+  border-spacing:0;
 }
 
 /* Site areas */
 html {
-	height: 100%;
-	overflow-y: scroll;
+  height: 100%;
+  overflow-y: scroll;
 }
 header {
-	height:100px;
-	width:100%;
-	background-color:#3b3b3b;
+  height:100px;
+  width:100%;
+  background-color:#3b3b3b;
+  position:relative;
+  z-index:2;
 }
 footer {
-    height: 50px; 
-    width:100%;
-    left: 0;
-    bottom: 0; 
-	background-color:#3b3b3b;
+  height: 50px; 
+  width:100%;
+  left: 0;
+  bottom: 0; 
+  background-color:#3b3b3b;
+  position:relative;
+  z-index:1;
 }
 /* Wrapper for whole site */
 .site {
@@ -65,50 +69,56 @@ footer {
 }
 /* Wrapper for the non-header/footer part of site */
 .site-content {
-    flex: 1;
-    background-color:#e2e2e2;
+  flex: 1;
+  /*background-color:#e2e2e2;*/
+  background-color:#ffffff;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.3),  /* Below */
+              0px -10px 10px 0px rgba(0,0,0,0.6); /* Above */
+  position:relative;
+  z-index:100;
 }
 /* Main content column (separately for map view) and equivalents for header/footer */
 .column-map {
-	width: 100%;
-	height: calc(100% - 50px);
-	box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.2);
+  width: 100%;
+  height: calc(100% - 50px);
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.3);
+  position:relative;
+  z-index:100;
 }
 .column-main {
-	width:840px;
-	min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
-	margin:0px auto;
-	padding-left:10px;
-	padding-right:10px;
-	padding-top:0px;
-	padding-bottom:0px;
-	text-align:left;
-	background-color:#ffffff;
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  width:900px;
+  min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
+  margin:0px auto;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:0px;
+  padding-bottom:0px;
+  text-align:left;
+  background-color:#ffffff;
+/*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);*/
 }
 .column-header {
-	width: 840px;
-	margin: auto;
-	padding-top: 4px;
+  width: 900px;
+  margin: auto;
+  padding-top: 4px;
 }
 .column-footer {
-	width: 840px;
-	margin: auto;
-	padding-top: 6px;
-	line-height: 50%;
+  width: 900px;
+  margin: auto;
+  padding-top: 6px;
+  line-height: 50%;
 }
 /* Top level generic container for actual contents inside main column */
 .column-contentblock {
-	width:100%;
+  width:100%;
   overflow: hidden;
-	padding-top:20px;
+  padding-top:20px;
 }
 /* Half-width column for map legend */
 .column-legend {
-	padding-top:0px;
-  width:410px; 
+  padding-top:0px;
+  width:440px; 
   vertical-align:top; 
-  line-height:1.0;
 }
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
@@ -134,209 +144,209 @@ footer {
 
 /* Page title and navigation elements */
 .logo_box {
-	display:inline-block; 
-	vertical-align:top; 
-	width:62px; 
-	height:95px;
+  display:inline-block; 
+  vertical-align:top; 
+  width:62px; 
+  height:95px;
 }
 .title_and_links {
-	display:inline-block; 
-	vertical-align:top; 
-	width:400px; 
-	padding-top:12px;  
-	text-align:left;
+  display:inline-block; 
+  vertical-align:top; 
+  width:400px; 
+  padding-top:12px;  
+  text-align:left;
 }
 .nav_container {
-	width:250px; 
-	padding-left:5px;
-	padding-top:0px;
-	margin-top:-3px;
+  width:250px; 
+  padding-left:5px;
+  padding-top:0px;
+  margin-top:-3px;
 }
 .nav_button {
-	font:11pt 'Abel',sans-serif;
-	line-height: 110%;
-	display:inline-block;
-	vertical-align:top;
-	width:78px;
-	margin:0px;
-	padding:0px;
-	text-align:center;
+  font:11pt 'Abel',sans-serif;
+  line-height: 110%;
+  display:inline-block;
+  vertical-align:top;
+  width:78px;
+  margin:0px;
+  padding:0px;
+  text-align:center;
   letter-spacing:0.03em;
-	border-bottom:solid #e2e2e2 1px;
-	border-top:solid #e2e2e2 1px;
+  border-bottom:solid #e2e2e2 1px;
+  border-top:solid #e2e2e2 1px;
 }
 .contact {
-	float:right; 
-	vertical-align:top; 
-	width:300px; 
-	height:80px; 
-	padding-top:15px; 
-	padding-right:20px;  
-	text-align:right;
+  float:right; 
+  vertical-align:top; 
+  width:300px; 
+  height:80px; 
+  padding-top:15px; 
+  padding-right:20px;  
+  text-align:right;
 }
 
 .symbol {
-	display:inline-block;
-	vertical-align:top;
-	margin-top:5px;
-	width:39px;
-	height:39px;
+  display:inline-block;
+  vertical-align:top;
+  margin-top:5px;
+  width:39px;
+  height:39px;
   background-image:url('../images/lines.png');
   background-repeat:no-repeat;
 }
 .symbol_title {
-	display:inline-block;
-	vertical-align:top;
-	width:300px;
-	height:39px;
-	margin-top:5px;
-	padding-top:3px;
-	padding-left:5px;
+  display:inline-block;
+  vertical-align:top;
+  width:300px;
+  height:39px;
+  margin-top:5px;
+  padding-top:3px;
+  padding-left:5px;
   line-height:30%;
-	color:#808080;
+  color:#808080;
 }
 .symbol_desc {
-	display:inline-block;
-	vertical-align:top;
-	margin-top:-5px;
-	padding-left:5px;
-	padding-bottom:15px;
-	font:11pt 'Open Sans',sans-serif;
-	line-height:150%;
-}	
+  display:inline-block;
+  vertical-align:top;
+  margin-top:-5px;
+  padding-left:5px;
+  padding-bottom:15px;
+  font:11pt 'Open Sans',sans-serif;
+  line-height:150%;
+} 
 
 /* Text styles */
 logotitle {
-	font-family:'Abel',sans-serif;
+  font-family:'Abel',sans-serif;
   font-size:36pt;
-	font-weight:bold;
-	letter-spacing: 1px;
-	line-height:100%;
-	text-align:center;
-	vertical-align:top;
-	color:#e2e2e2;
-	padding-left:2px;
+  font-weight:bold;
+  letter-spacing: 1px;
+  line-height:100%;
+  text-align:center;
+  vertical-align:top;
+  color:#e2e2e2;
+  padding-left:2px;
 }
 title_1 {
-	font:13pt 'Abel',sans-serif;
+  font:13pt 'Abel',sans-serif;
   letter-spacing: 0.03em;
-	font-weight:bold;
-	text-transform: uppercase;
-	text-align:left;
-	color:#3b3b3b;
+  font-weight:bold;
+  text-transform: uppercase;
+  text-align:left;
+  color:#3b3b3b;
 }
 title_2 {
-	font:12.5pt 'Abel',sans-serif;
+  font:12.5pt 'Abel',sans-serif;
   letter-spacing: 0.03em;
-	font-weight:bold;
-	text-align:left;
-	color:#3b3b3b;
+  font-weight:bold;
+  text-align:left;
+  color:#3b3b3b;
 }
 bodytext {
-	font:11pt 'Open Sans',sans-serif;
-	line-height:150%;
-	text-align:left;
-	color:#000000;
+  font:11pt 'Open Sans',sans-serif;
+  line-height:150%;
+  text-align:left;
+  color:#000000;
 }
 copyright {
-	font:7pt 'Open Sans',sans-serif;
-	text-align:left;
-	color:#7f7f7f;
+  font:7pt 'Open Sans',sans-serif;
+  text-align:left;
+  color:#7f7f7f;
 }
 b {
-	font-weight:700;
-	color:#3b3b3b;
+  font-weight:700;
+  color:#3b3b3b;
 }
 i {
-	font-style: oblique;
+  font-style: oblique;
 }
 
 small {
-	font-size: 70%;
+  font-size: 70%;
 }
 hr {
     display: block;
     height: 0px;
     border: 0;
     border-top: 2px solid #f1f1f1;
-	margin: 0;
+  margin: 0;
     padding: 0;
 }
 
 /* Link styles */
 a {
-	text-decoration:none;
+  text-decoration:none;
 }
 a:visited {
-	color:#f2a766; 
-	background:transparent; 
-	text-decoration:none;
+  color:#f2a766; 
+  background:transparent; 
+  text-decoration:none;
 }
 a:link {
-	color:#f2a766; 
-	background:transparent; 
-	text-decoration:none;
+  color:#f2a766; 
+  background:transparent; 
+  text-decoration:none;
 }
 a:hover {
-	color:#f87907; 
-	background:transparent; 
-	text-decoration:none;
+  color:#f87907; 
+  background:transparent; 
+  text-decoration:none;
 }
 a:active {
-	color:#f87907; 
-	background:transparent; 
-	text-decoration:none;
+  color:#f87907; 
+  background:transparent; 
+  text-decoration:none;
 }
 
 /* Styling quick tr'Abel' buttons */
 #quickTravel {
-	height: 26px; 
-	width: 86px;  
-	font: 100% 'Open Sans',sans-serif;
-	text-align: left;
-	line-height: 23px;
+  height: 26px; 
+  width: 86px;  
+  font: 100% 'Open Sans',sans-serif;
+  text-align: left;
+  line-height: 23px;
   border-radius: 2px;
 }
 
 /* Styling leaflet elements to match rest of the site (some not perhaps necessary to include) */
 .leaflet-container {
-	font: 80% 'Open Sans', Arial, Helvetica, sans-serif;
-	}
+  font: 80% 'Open Sans', Arial, Helvetica, sans-serif;
+  }
 .leaflet-bar {
-	}
+  }
 .leaflet-bar a {
-	background-color: #fff;
-	border-bottom: 1px solid #ccc;
-	width: 26px;
-	height: 26px;
-	line-height: 26px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	color: black;
-	}
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  }
 .leaflet-bar a:hover {
-	background-color: #f4f4f4;
-	}
+  background-color: #f4f4f4;
+  }
 /* Removing corner smoothing from between the two buttons in leaflet's zoom control and divider line from below the lowest */
 .leaflet-bar a:first-child {
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
-	
-	}
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  
+  }
 .leaflet-bar a:last-child {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
-	border-bottom: none;
-	}
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom: none;
+  }
 /* Sharpening layer control's corners */
 .leaflet-control-layers {
-	border-radius: 2px;
-	}
+  border-radius: 2px;
+  }
 
 /* List styles */
 ul {
