@@ -119,10 +119,9 @@ footer {
   line-height: 50%;
 }
 .column-full-title {
-  width:910px;
   margin-top: 15px;
-  border-left: 2px solid #e6e6e6;
-  border-bottom: 2px solid #e6e6e6;
+/*border-left: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;*/
 }
 /* Half-width column for map legend etc. */
 .column-half {
@@ -243,14 +242,27 @@ title_1 {
   text-transform: uppercase;
   text-align:left;
   color:#3b3b3b;
-}
-title_2 {
-  font:12.5pt 'Abel',sans-serif;
-  letter-spacing: 0.03em;
-  font-weight:bold;
-  text-align:left;
-  color:#3b3b3b;
-}
+  overflow: hidden;
+  }
+  title_1:after {
+    background-color: #e2e2e2;
+    content: "";
+    display: inline-block;
+    height: 12px;
+    position: relative;
+    vertical-align: bottom;
+    width: 100%;
+    left: -0.1em;
+    margin-right: -50%;
+    margin-bottom:6px;
+  }
+  title_2 {
+    font:12.5pt 'Abel',sans-serif;
+    letter-spacing: 0.03em;
+    font-weight:bold;
+    text-align:left;
+    color:#3b3b3b;
+  }
 bodytext {
   font:11pt 'Open Sans',sans-serif;
   line-height:140%;
@@ -278,26 +290,26 @@ small {
 a {
   text-decoration:none;
 }
-a:visited {
-  color:#f2a766; 
-  background:transparent; 
-  text-decoration:none;
-}
-a:link {
-  color:#f2a766; 
-  background:transparent; 
-  text-decoration:none;
-}
-a:hover {
-  color:#f87907; 
-  background:transparent; 
-  text-decoration:none;
-}
-a:active {
-  color:#f87907; 
-  background:transparent; 
-  text-decoration:none;
-}
+  a:visited {
+    color:#f2a766; 
+    background:transparent; 
+    text-decoration:none;
+  }
+  a:link {
+    color:#f2a766; 
+    background:transparent; 
+    text-decoration:none;
+  }
+  a:hover {
+    color:#f87907; 
+    background:transparent; 
+    text-decoration:none;
+  }
+  a:active {
+    color:#f87907; 
+    background:transparent; 
+    text-decoration:none;
+  }
 
 /* Styling quick travel buttons */
 #quickTravel {
@@ -316,48 +328,38 @@ a:active {
   }
 .leaflet-bar {
   }
-.leaflet-bar a {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  }
-.leaflet-bar a:hover {
-  background-color: #f4f4f4;
-  }
-/* Removing corner smoothing from between the two buttons in leaflet's zoom control and divider line from below the lowest */
-.leaflet-bar a:first-child {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  
-  }
-.leaflet-bar a:last-child {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-bottom: none;
-  }
+  .leaflet-bar a {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    }
+      .leaflet-bar a:hover {
+      background-color: #f4f4f4;
+      }
+    /* Removing corner smoothing from between the two buttons in leaflet's zoom control and divider line from below the lowest */
+      .leaflet-bar a:first-child {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      
+      }
+      .leaflet-bar a:last-child {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      border-bottom: none;
+      }
 /* Sharpening layer control's corners */
 .leaflet-control-layers {
   border-radius: 2px;
-  }
-
-/* List styles */
-ul {
-  list-style-type: disc;
-  margin-left: 15px;
-}
-ul ul {
-  list-style-type: circle;
-  margin-left: 15px;
 }
 
 /* Images for map legend */
