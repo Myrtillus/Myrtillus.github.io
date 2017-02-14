@@ -125,8 +125,8 @@ footer {
 }
 /* Half-width column for map legend etc. */
 .column-half {
-  width:445px; 
-  vertical-align:top; 
+  width:437.5px; 
+  vertical-align:top;
 }
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
