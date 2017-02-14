@@ -52,9 +52,9 @@ header {
   flex-shrink: 0; /* 2 */
   position:relative;
   background: #3b3b3b; /* For browsers that do not support gradients */
-    background: -moz-linear-gradient(top,  #3b3b3b 0%, #3b3b3b 90%, #000000 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #3b3b3b 0%,#3b3b3b 90%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #3b3b3b 0%,#3b3b3b 90%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(top,  #3b3b3b 0%, #3b3b3b 90%, #1a1a1a 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #3b3b3b 0%,#3b3b3b 90%,#1a1a1a 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #3b3b3b 0%,#3b3b3b 90%,#1a1a1a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 footer {
@@ -64,10 +64,10 @@ footer {
   left: 0;
   bottom: 0; 
   position:relative;
-  background: #000000; /* For browsers that do not support gradients */
-    background: -moz-linear-gradient(top, #000000 0%, #3b3b3b 10%, #3b3b3b 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #000000 0%,#3b3b3b 10%,#3b3b3b 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #000000 0%,#3b3b3b 10%,#3b3b3b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: #3b3b3b; /* For browsers that do not support gradients */
+    background: -moz-linear-gradient(top, #1a1a1a 0%, #3b3b3b 20%, #3b3b3b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1a1a1a 0%,#3b3b3b 20%,#3b3b3b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1a1a1a 0%,#3b3b3b 20%,#3b3b3b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#3b3b3b',GradientType=0 ); /* IE6-9 */
 
 }
@@ -99,8 +99,10 @@ footer {
 .column-full {
   width:900px;
   margin:0px auto;
-  padding-top:20px;
+  padding-top:0px;
   padding-bottom:0px;
+  padding-left: 0px;
+  padding-right: 0px;
   overflow: hidden;
   text-align:left;
 }
@@ -116,9 +118,15 @@ footer {
   padding-top: 8px;
   line-height: 50%;
 }
+.column-full-title {
+  width:910px;
+  margin-top: 15px;
+  border-left: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+}
 /* Half-width column for map legend etc. */
 .column-half {
-  width:440px; 
+  width:445px; 
   vertical-align:top; 
 }
 /* Container to spread a row of image evenly horizontally across column */
@@ -210,8 +218,8 @@ footer {
   display:inline-block;
   vertical-align:top;
   margin-top:-5px;
-  padding-left:5px;
-  padding-bottom:15px;
+  padding-left:0px;
+  margin-bottom:15px;
   font:11pt 'Open Sans',sans-serif;
   line-height:140%;
 } 
@@ -265,14 +273,6 @@ i {
 small {
   font-size: 70%;
 }
-hr {
-    display: block;
-    height: 0px;
-    border: 0;
-    border-top: 2px solid #f1f1f1;
-  margin: 0;
-    padding: 0;
-}
 
 /* Link styles */
 a {
@@ -299,10 +299,11 @@ a:active {
   text-decoration:none;
 }
 
-/* Styling quick tr'Abel' buttons */
+/* Styling quick travel buttons */
 #quickTravel {
   height: 26px; 
-  width: 86px;  
+  width: 84px;  
+  text-indent:-2px;
   font: 100% 'Open Sans',sans-serif;
   text-align: left;
   line-height: 23px;
