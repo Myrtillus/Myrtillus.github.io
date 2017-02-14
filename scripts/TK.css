@@ -48,18 +48,26 @@ html {
 header {
   height:100px;
   width:100%;
-  background-color:#3b3b3b;
+  margin:0px auto;
   position:relative;
-  z-index:2;
+  background: #3b3b3b; /* For browsers that do not support gradients */
+    background: -moz-linear-gradient(top,  #3b3b3b 0%, #3b3b3b 90%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #3b3b3b 0%,#3b3b3b 90%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #3b3b3b 0%,#3b3b3b 90%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 footer {
   height: 50px; 
   width:100%;
   left: 0;
   bottom: 0; 
-  background-color:#3b3b3b;
   position:relative;
-  z-index:1;
+  background: #000000; /* For browsers that do not support gradients */
+    background: -moz-linear-gradient(top, #000000 0%, #3b3b3b 10%, #3b3b3b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #000000 0%,#3b3b3b 10%,#3b3b3b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #000000 0%,#3b3b3b 10%,#3b3b3b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#3b3b3b',GradientType=0 ); /* IE6-9 */
+
 }
 /* Wrapper for whole site */
 .site {
@@ -70,53 +78,37 @@ footer {
 /* Wrapper for the non-header/footer part of site */
 .site-content {
   flex: 1;
-  /*background-color:#e2e2e2;*/
+  width:100%;
+  margin:0px auto;
+  padding:0px;
   background-color:#ffffff;
-  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.3),  /* Below */
-              0px -10px 10px 0px rgba(0,0,0,0.6); /* Above */
   position:relative;
-  z-index:100;
+  text-align:left;
+  min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
 }
 /* Main content column (separately for map view) and equivalents for header/footer */
-.column-map {
-  width: 100%;
-  height: calc(100% - 50px);
-  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.3);
-  position:relative;
-  z-index:100;
-}
-.column-main {
+.column-full {
   width:900px;
-  min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
   margin:0px auto;
-  padding-left:10px;
-  padding-right:10px;
-  padding-top:0px;
+  padding-top:20px;
   padding-bottom:0px;
+  overflow: hidden;
   text-align:left;
-  background-color:#ffffff;
-/*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);*/
 }
-.column-header {
-  width: 900px;
-  margin: auto;
+.column-full-map {
+  padding-top: 0px;
+  width: 100%;
+  min-height: calc(100% - 50px); /* Height = everything below header minus the footer */
+}
+.column-full-header {
   padding-top: 4px;
 }
-.column-footer {
-  width: 900px;
-  margin: auto;
-  padding-top: 6px;
+.column-full-footer {
+  padding-top: 8px;
   line-height: 50%;
 }
-/* Top level generic container for actual contents inside main column */
-.column-contentblock {
-  width:100%;
-  overflow: hidden;
-  padding-top:20px;
-}
-/* Half-width column for map legend */
-.column-legend {
-  padding-top:0px;
+/* Half-width column for map legend etc. */
+.column-half {
   width:440px; 
   vertical-align:top; 
 }
@@ -194,7 +186,7 @@ footer {
   background-image:url('../images/lines.png');
   background-repeat:no-repeat;
 }
-.symbol_title {
+.symbol-title {
   display:inline-block;
   vertical-align:top;
   width:300px;
@@ -205,14 +197,14 @@ footer {
   line-height:30%;
   color:#808080;
 }
-.symbol_desc {
+.symbol-desc {
   display:inline-block;
   vertical-align:top;
   margin-top:-5px;
   padding-left:5px;
   padding-bottom:15px;
   font:11pt 'Open Sans',sans-serif;
-  line-height:150%;
+  line-height:140%;
 } 
 
 /* Text styles */
@@ -244,7 +236,7 @@ title_2 {
 }
 bodytext {
   font:11pt 'Open Sans',sans-serif;
-  line-height:150%;
+  line-height:140%;
   text-align:left;
   color:#000000;
 }
