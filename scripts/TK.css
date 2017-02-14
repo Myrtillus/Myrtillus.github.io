@@ -132,8 +132,8 @@ footer {
 .image-container {
   text-align: justify;
   line-height: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 .image-container img {
   display: inline-block;
