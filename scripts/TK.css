@@ -97,7 +97,9 @@ footer {
 }
 /* Main content column (separately for map view) and equivalents for header/footer */
 .column-full {
-  width:900px;
+  max-width:900px;
+  flex-basis: 900px;
+  -webkit-flex-basis: 900px;
   margin:0px auto;
   padding-top:0px;
   padding-bottom:0px;
@@ -125,7 +127,7 @@ footer {
 }
 /* Half-width column for map legend etc. */
 .column-half {
-  width:437.5px; 
+  width:48.5%; 
   vertical-align:top;
 }
 /* Container to spread a row of image evenly horizontally across column */
@@ -165,17 +167,17 @@ footer {
   text-align:left;
 }
 .nav_container {
-  width:250px; 
+  width:260px; 
   padding-left:5px;
   padding-top:0px;
   margin-top:-3px;
 }
 .nav_button {
-  font:11pt 'Abel',sans-serif;
+  font:10pt 'Abel',sans-serif;
   line-height: 110%;
   display:inline-block;
   vertical-align:top;
-  width:78px;
+  width:82px;
   margin:0px;
   padding:0px;
   text-align:center;
@@ -228,7 +230,7 @@ logotitle {
   font-family:'Abel',sans-serif;
   font-size:36pt;
   font-weight:bold;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   line-height:100%;
   text-align:center;
   vertical-align:top;
