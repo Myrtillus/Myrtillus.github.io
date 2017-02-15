@@ -114,7 +114,7 @@ footer {
   height: calc(100vh - 150px); /* Height = everything minus header/footer */
 }
 .column-full-header {
-  padding-top: 4px;
+  padding-top:10px;
 }
 .column-full-footer {
   padding-top: 8px;
@@ -130,56 +130,63 @@ footer {
   width:48.5%; 
   vertical-align:top;
 }
-/* Container to spread a row of image evenly horizontally across column */
-.image-container {
-  text-align: justify;
-  line-height: 0;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-.image-container img {
-  display: inline-block;
-}
-.image-container:after {
-  content: "";
-  width: 100%;
-  display: inline-block;
-  vertical-align: bottom;
-}
-.image-text {
-  display: inline-block;
-  height: 5px;
-  width: 160px; 
-}
-
 /* Page title and navigation elements */
-.logo_box {
-  display:inline-block; 
+.logo_container {
+  position:relative;
+  z-index:2;
+  float:left;
   vertical-align:top; 
-  width:62px; 
+  width:7%; 
   height:95px;
+  padding:0px;
+  margin:0px;
+  opacity:0.9;
 }
-.title_and_links {
-  display:inline-block; 
+.title_container {
+  position:relative;
+  z-index:1;
+  float:left;
   vertical-align:top; 
-  width:400px; 
-  padding-top:12px;  
-  text-align:left;
+  width:35%; 
+  overflow:hidden;
+  padding:0px;
+  margin:0px;
+  padding-top:10px;  
+  padding-left:5px;
+  text-align:center;
 }
 .nav_container {
-  width:300px; 
-  padding-left:5px;
-  padding-top:0px;
-  margin-top:-3px;
-}
-.nav_button {
-  font:12pt 'Rajdhani',sans-serif;
-  line-height: 100%;
-  display:inline-block;
-  vertical-align:top;
-  width:97px;
+  position:relative;
+  z-index:3;
+  width: 56.9%;
+  overflow: hidden;
+  float:right;
+  text-align: right;
   margin:0px;
   padding:0px;
+  margin:0px;
+  padding-top:16px;
+}
+/*
+  .nav_container:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+*/
+.nav_button {
+  font:13pt 'Rajdhani',sans-serif;
+  font-weight:500;
+  line-height: 170%;
+  text-transform: uppercase;
+  height:28px;
+  display:inline-block;
+  vertical-align:top;
+  width:32.7%;
+  margin:0px;
+  padding:0px;
+  padding-bottom:2px;
   text-align:center;
   letter-spacing:0.00em;
   border-bottom:solid #e2e2e2 1px;
@@ -194,7 +201,27 @@ footer {
   padding-right:20px;  
   text-align:right;
 }
-
+/* Container to spread a row of image evenly horizontally across column */
+.image-container {
+  text-align: justify;
+  line-height: 0;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+  .image-container img {
+    display: inline-block;
+  }
+  .image-container:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+.image-text {
+  display: inline-block;
+  height: 5px;
+  width: 160px; 
+}
 .symbol {
   display:inline-block;
   vertical-align:top;
@@ -232,7 +259,6 @@ logotitle {
   font-weight:500;
   letter-spacing: 0.04em;
   line-height:100%;
-  text-align:center;
   vertical-align:top;
   color:#e2e2e2;
   padding-left:2px;
