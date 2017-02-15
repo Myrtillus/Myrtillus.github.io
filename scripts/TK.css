@@ -165,7 +165,7 @@ footer {
   margin:0px;
   padding:0px;
   margin:0px;
-  padding-top:16px;
+  padding-top:18px;
 }
 /*
   .nav_container:after {
@@ -178,15 +178,15 @@ footer {
 .nav_button {
   font:13pt 'Rajdhani',sans-serif;
   font-weight:500;
-  line-height: 170%;
+  line-height: 160%;
   text-transform: uppercase;
-  height:28px;
+  height:27px;
   display:inline-block;
   vertical-align:top;
   width:32.7%;
   margin:0px;
   padding:0px;
-  padding-bottom:2px;
+  padding-bottom:1px;
   text-align:center;
   letter-spacing:0.00em;
   border-bottom:solid #e2e2e2 1px;
@@ -255,7 +255,7 @@ footer {
 /* Text styles */
 logotitle {
   font-family:'Rajdhani',sans-serif;
-  font-size:36pt;
+  font-size:35.5pt;
   font-weight:500;
   letter-spacing: 0.04em;
   line-height:100%;
