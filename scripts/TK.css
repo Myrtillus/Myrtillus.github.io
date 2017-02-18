@@ -45,18 +45,21 @@ html {
   height: 100%;
   overflow-y: scroll;
 }
+
 header {
-  height:100px;
-  width:100%;
-  margin:0px auto;
-  flex-shrink: 0; /* 2 */
-  position:relative;
   background: #3b3b3b; /* For browsers that do not support gradients */
     background: -moz-linear-gradient(top,  #3b3b3b 0%, #3b3b3b 90%, #1a1a1a 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top,  #3b3b3b 0%,#3b3b3b 90%,#1a1a1a 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #3b3b3b 0%,#3b3b3b 90%,#1a1a1a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  width: 100%;
+  height: 100px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
+
 footer {
   height: 50px; 
   width:100%;
@@ -110,12 +113,131 @@ footer {
 }
 .column-full-map {
   padding-top: 0px;
+  position:relative¨;
+  z-index:1;
   width: 100%;
   height: calc(100vh - 150px); /* Height = everything minus header/footer */
 }
-.column-full-header {
-  padding-top:10px;
+.column-header {
+  max-width:900px; 
+  margin:auto;
 }
+
+
+
+#logo{
+  margin: 10px;
+  float: left;
+  width: 62px;
+  height: 80px;
+  background: url(../images/gps-symbol_medium.png) no-repeat center;
+  display: block;
+}
+
+nav {
+  float: right;
+  padding-top: 20px;  
+}
+
+#menu-icon {
+  display: hidden;
+  width: 30px;
+  height: 30px;
+  background: #f2a766 url(../images/menu-icon.png) center;
+}
+
+a:hover#menu-icon {
+  background-color: #f87907;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  float: left;
+  padding: 0px;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  font:16.5px 'Rajdhani',sans-serif;
+  text-align:center;
+  margin-left:10px;
+  margin-top:7px;
+  width:100px;
+  font-weight:500;
+  line-height:28px;
+}
+
+.current {
+  color: #f87907;
+}
+
+
+/*MEDIA QUERY*/
+@media only screen and (max-width : 740px) {
+
+  header {
+    position: relative;
+  }
+
+  #menu-icon {
+    display:inline-block;
+    margin-right:20px;
+    margin-top:7px;
+  }
+
+  nav ul, nav:active ul { 
+    display: none;
+    position: absolute;
+    z-index:2;
+    padding: 0px;
+    background: #3b3b3b;
+    border: 2px solid #3b3b3b;
+    right: 20px;
+    top: 57px;
+    width: 50%;
+    border-radius: 4px 0 4px 4px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  }
+
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    border:0;
+  }
+
+  nav:hover ul {
+    display: block;
+  }
+
+}
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 .column-full-footer {
   padding-top: 8px;
   line-height: 50%;
@@ -131,6 +253,7 @@ footer {
   vertical-align:top;
 }
 /* Page title and navigation elements */
+/*
 .logo_container {
   position:relative;
   z-index:2;
@@ -167,6 +290,7 @@ footer {
   margin:0px;
   padding-top:18px;
 }
+*/
 /*
   .nav_container:after {
     content: "";
@@ -175,10 +299,11 @@ footer {
     vertical-align: bottom;
   }
 */
+/*
 .nav_button {
-  font:13pt 'Rajdhani',sans-serif;
+  font:16.5px 'Rajdhani',sans-serif;
   font-weight:500;
-  line-height: 160%;
+  line-height: 170%;
   text-transform: uppercase;
   height:27px;
   display:inline-block;
@@ -201,6 +326,7 @@ footer {
   padding-right:20px;  
   text-align:right;
 }
+*/
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
   text-align: justify;
@@ -258,7 +384,7 @@ logotitle {
   font-size:35.5pt;
   font-weight:500;
   letter-spacing: 0.04em;
-  line-height:100%;
+  line-height:85px;
   vertical-align:top;
   color:#e2e2e2;
   padding-left:2px;

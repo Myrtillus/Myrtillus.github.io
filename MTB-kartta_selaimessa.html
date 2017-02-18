@@ -26,16 +26,6 @@
 <script src="./scripts/easy-button.js"></script>
 	 
 <!-- Hightlighting the active page's navbutton -->
-<style>
-#nav_button_1 {
-	border-bottom:solid #f2a766 1px;
-	border-top:solid #f2a766 1px;
-}
-#nav_button_1 a:hover, a:active {  
-	text-decoration:none; 
-	color:#f2a766;  
-}
-</style>
 
 </head>
 <body class="site">
@@ -45,29 +35,23 @@
 ################################################
 -->
 <header>
-	<div class="column-full column-full-header">
-		<div class="logo_container">
-		<img src="./images/gps-symbol_medium.png" alt="Logo">
-		</div>
-		<div class="title_container">
-			<logotitle>
-			MTB-KARTTA<span style="font-family:'Open Sans'; font-size:75%">.</span>FI
-			</logotitle>
-		</div>
-		<div class="nav_container">
-			<div id="nav_button_1" class="nav_button"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></div>
-			<div id="nav_button_2" class="nav_button"><a href="MTB-kartta_garminiin.html">Garmin/Mobiili</a></div>
-			<div id="nav_button_3" class="nav_button"><a href="MTB-kartta_selite.html">Karttaselite</a></div>
-			<!-- Commented out until there's some content here
-			<div id="nav_button_4" class="nav_button"><a href="MTB-kartta_ohjeita.html">Ohjeita</a></div>
-			-->
-		</div>
-		<div class="contact">
-		<copyright>
-<!--		Contact: <a href="xxx@yyy.com?Subject=MTB-kartta" target="_top">xxx@yyy.com</a>-->
-		</copyright>
-		</div>
-	</div>
+<div class="column-header">
+<a href="#" id="logo"></a>
+<logotitle>
+MTB-KARTTA<span style="font-family:'Open Sans'; font-size:75%">.</span>FI
+</logotitle>
+<nav>
+
+<a href="#" id="menu-icon"></a>
+
+<ul>
+  <li><a href="MTB-kartta_selaimessa.html" class="current">Selaimessa</a></li>
+  <li><a href="MTB-kartta_garminiin.html">Garmin/Mobiili</a></li>
+  <li><a href="MTB-kartta_selite.html">Karttaselite</a></li>
+</ul>
+
+</nav>
+</div>
 </header>
 <!--
 ################################################
