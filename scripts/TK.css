@@ -168,22 +168,83 @@ li {
   font-weight:500;
   line-height:28px;
 }
-
-.current {
-  color: #f87907;
+li:hover {
+  border-top: 1px solid #f87907;
+  border-bottom: 1px solid #f87907;
 }
 
+.current {
+  border-top: 1px solid #f2a766;
+  border-bottom: 1px solid #f2a766;
+}
 
-/*MEDIA QUERY*/
+/* Common definitions for compressed menus */
 @media only screen and (max-width : 740px) {
 
   header {
     position: relative;
   }
+  nav a {
+    display: block;
+  }
+
+  nav li {
+    text-align: center;
+    width: 100%;
+    height:45px;
+    line-height:45px;
+    margin: 0;
+    border-top: 1px solid #3b3b3b;
+    border-bottom: 1px solid #3b3b3b;
+  }
+  li .current {
+    border:0;
+  }
+
+  nav:hover ul {
+    display: block;
+  }
+  nav a:hover {
+    background:#545454;
+  }
+}
+
+
+/* Medium width menu definitions */
+@media only screen and (min-width : 551px) and (max-width : 740px) {
 
   #menu-icon {
     display:inline-block;
-    margin-right:20px;
+    width: 105px;
+    margin-right:11px;
+    margin-top:7px;
+    background: #f2a766 url(../images/menu-icon-large.png) right;
+  }
+
+  nav ul, nav:active ul { 
+    display: none;
+    position: absolute;
+    z-index:2;
+    padding: 0px;
+    background: #3b3b3b;
+    border: 2px solid #3b3b3b;
+    right: 10px;
+    top: 57px;
+    width: 50%;
+    border-radius: 4px 0 4px 4px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  }
+
+}
+
+/* Minimum width menu definitions */
+@media only screen and (max-width : 550px) {
+
+  #menu-icon {
+    display:inline-block;
+    margin-right:11px;
     margin-top:7px;
   }
 
@@ -194,49 +255,16 @@ li {
     padding: 0px;
     background: #3b3b3b;
     border: 2px solid #3b3b3b;
-    right: 20px;
+    right: 0px;
     top: 57px;
-    width: 50%;
+    width: 100%;
     border-radius: 4px 0 4px 4px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   }
 
-  nav li {
-    text-align: center;
-    width: 100%;
-    padding: 10px 0;
-    margin: 0;
-    border:0;
-  }
-
-  nav:hover ul {
-    display: block;
-  }
-
 }
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
 .column-full-footer {
   padding-top: 8px;
