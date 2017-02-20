@@ -6,7 +6,7 @@ del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
-fieldset, form, lRajdhani, legend,
+fieldset, form, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
@@ -57,7 +57,7 @@ header {
   position: relative;
   top: 0;
   left: 0;
-  z-index: 100;
+
 }
 
 footer {
@@ -120,150 +120,21 @@ footer {
 }
 .column-header {
   max-width:900px; 
+  height:100%;
   margin:auto;
 }
 
-
-
-#logo{
+.logo_and_title_container {
+  width:390px;
+  float:left;
+}
+#logo {
   margin: 10px;
   float: left;
   width: 62px;
   height: 80px;
   background: url(../images/gps-symbol_medium.png) no-repeat center;
   display: block;
-}
-
-nav {
-  float: right;
-  padding-top: 20px;  
-}
-
-#menu-icon {
-  display: hidden;
-  width: 30px;
-  height: 30px;
-  background: #f2a766 url(../images/menu-icon.png) center;
-}
-
-a:hover#menu-icon {
-  background-color: #f87907;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
-  display: inline-block;
-  float: left;
-  padding: 0px;
-  border-top: 1px solid #e2e2e2;
-  border-bottom: 1px solid #e2e2e2;
-  font:16.5px 'Rajdhani',sans-serif;
-  text-align:center;
-  margin-left:10px;
-  margin-top:7px;
-  width:100px;
-  font-weight:500;
-  line-height:28px;
-}
-li:hover {
-  border-top: 1px solid #f87907;
-  border-bottom: 1px solid #f87907;
-}
-
-.current {
-  border-top: 1px solid #f2a766;
-  border-bottom: 1px solid #f2a766;
-}
-
-/* Common definitions for compressed menus */
-@media only screen and (max-width : 740px) {
-
-  header {
-    position: relative;
-  }
-  nav a {
-    display: block;
-  }
-
-  nav li {
-    text-align: center;
-    width: 100%;
-    height:45px;
-    line-height:45px;
-    margin: 0;
-    border-top: 1px solid #3b3b3b;
-    border-bottom: 1px solid #3b3b3b;
-  }
-  li .current {
-    border:0;
-  }
-
-  nav:hover ul {
-    display: block;
-  }
-  nav a:hover {
-    background:#545454;
-  }
-}
-
-
-/* Medium width menu definitions */
-@media only screen and (min-width : 551px) and (max-width : 740px) {
-
-  #menu-icon {
-    display:inline-block;
-    width: 105px;
-    margin-right:11px;
-    margin-top:7px;
-    background: #f2a766 url(../images/menu-icon-large.png) right;
-  }
-
-  nav ul, nav:active ul { 
-    display: none;
-    position: absolute;
-    z-index:2;
-    padding: 0px;
-    background: #3b3b3b;
-    border: 2px solid #3b3b3b;
-    right: 10px;
-    top: 57px;
-    width: 50%;
-    border-radius: 4px 0 4px 4px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  }
-
-}
-
-/* Minimum width menu definitions */
-@media only screen and (max-width : 550px) {
-
-  #menu-icon {
-    display:inline-block;
-    margin-right:11px;
-    margin-top:7px;
-  }
-
-  nav ul, nav:active ul { 
-    display: none;
-    position: absolute;
-    z-index:2;
-    padding: 0px;
-    background: #3b3b3b;
-    border: 2px solid #3b3b3b;
-    right: 0px;
-    top: 57px;
-    width: 100%;
-    border-radius: 4px 0 4px 4px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-  }
-
 }
 
 .column-full-footer {
@@ -280,81 +151,7 @@ li:hover {
   width:48.5%; 
   vertical-align:top;
 }
-/* Page title and navigation elements */
-/*
-.logo_container {
-  position:relative;
-  z-index:2;
-  float:left;
-  vertical-align:top; 
-  width:7%; 
-  height:95px;
-  padding:0px;
-  margin:0px;
-  opacity:0.9;
-}
-.title_container {
-  position:relative;
-  z-index:1;
-  float:left;
-  vertical-align:top; 
-  width:35%; 
-  overflow:hidden;
-  padding:0px;
-  margin:0px;
-  padding-top:10px;  
-  padding-left:5px;
-  text-align:center;
-}
-.nav_container {
-  position:relative;
-  z-index:3;
-  width: 56.9%;
-  overflow: hidden;
-  float:right;
-  text-align: right;
-  margin:0px;
-  padding:0px;
-  margin:0px;
-  padding-top:18px;
-}
-*/
-/*
-  .nav_container:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
-    vertical-align: bottom;
-  }
-*/
-/*
-.nav_button {
-  font:16.5px 'Rajdhani',sans-serif;
-  font-weight:500;
-  line-height: 170%;
-  text-transform: uppercase;
-  height:27px;
-  display:inline-block;
-  vertical-align:top;
-  width:32.7%;
-  margin:0px;
-  padding:0px;
-  padding-bottom:1px;
-  text-align:center;
-  letter-spacing:0.00em;
-  border-bottom:solid #e2e2e2 1px;
-  border-top:solid #e2e2e2 1px;
-}
-.contact {
-  float:right; 
-  vertical-align:top; 
-  width:300px; 
-  height:80px; 
-  padding-top:15px; 
-  padding-right:20px;  
-  text-align:right;
-}
-*/
+
 /* Container to spread a row of image evenly horizontally across column */
 .image-container {
   text-align: justify;
@@ -406,7 +203,136 @@ li:hover {
   line-height:140%;
 } 
 
+/* Navigation styling */
+/**********************/
+
+ /* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+    list-style-type: none;
+    position: relative;
+    z-index:999;
+    float:right;
+    margin: 0;
+    margin-top:20px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3b3b3b;
+}
+
+/* Float the list items side by side */
+ul.topnav li {
+  float: left;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  font:16.5px 'Rajdhani',sans-serif;
+  text-align:center;
+  margin-left:10px;
+  margin-top:7px;
+  padding-left:5px;
+  padding-right: 5px;
+  line-height:28px;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a {
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.3s;
+}
+/* Text style for navigation links */
+li a {
+  font:17px 'Rajdhani',sans-serif;
+  letter-spacing: 0.03em;
+  text-align:left;
+  font-weight:600;
+  color:#f2a766;
+}
+/* Change border color of links on hover */
+ul.topnav li:hover {
+  border-top: 1px solid #f87907;
+  border-bottom: 1px solid #f87907;
+  transition: 0.3s;
+}
+/* Change font color of links on hover */
+ul.topnav a:hover {
+  color:#f87907;
+  transition: 0.3s;
+}
+
+/* Hide MENU toggle when not needed */
+ul.topnav li.icon {
+  display: none;
+}
+
+ /* When the screen is less than 750 pixels wide, hide all navigation buttons, display MENU toggle */
+@media screen and (max-width:750px) {
+  ul.topnav li {
+    display: none;
+  }
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+    padding-left:5px;
+    padding-right:5px;
+  }
+}
+
+/* Navigation styling when screen width <=750px */
+@media screen and (max-width:750px) {
+  ul.topnav.small {
+    position: absolute;
+    padding:0px;
+    padding-bottom:20px;
+    margin:0px;
+    margin-top:-5px;
+    width:100vw;
+  }
+  ul.topnav.small li.icon {
+    position: relative;
+    right: 0;
+    top: 0;
+    padding:0;
+  }
+  ul.topnav.small li {
+    float: none;
+    display: inline;
+    padding:0;
+  }
+  ul.topnav.small li a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding-bottom:10px;
+    padding-top:10px;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    transition: 0s;
+    margin:0;
+  }
+  ul.topnav.small li a:hover {
+    border-top: 1px solid #f87907;
+    border-bottom: 1px solid #f87907;
+    transition: 0s;
+  }
+  ul.topnav.small a:hover {
+    color:#f87907;
+  }
+}
+
+/* Styling the currently active page's link */
+ul.topnav li.current {
+  border-top: 1px solid #f2a766;
+  border-bottom: 1px solid #f2a766;
+}
+ul.topnav.small li.current {
+  border-top: 1px solid #f2a766;
+  border-bottom: 1px solid #f2a766;
+  background:red;
+}
+
+
 /* Text styles */
+/***************/
 logotitle {
   font-family:'Rajdhani',sans-serif;
   font-size:35.5pt;
@@ -427,6 +353,7 @@ title_1 {
   color:#3b3b3b;
   overflow: hidden;
   }
+  /* Grey bar next to the title text */
   title_1:after {
     background-color: #e2e2e2;
     content: "";

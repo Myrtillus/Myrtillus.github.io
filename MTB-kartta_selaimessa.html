@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="MTB-kartat: Garminiin">
+<meta name="description" content="MTB-kartta">
 <meta name="author" content="Tapio K.">
 <!-- <link rel="icon" href="../../favicon.ico"> Page icon here once one gets made -->
 
-<title>MTB-kartta - selaimessa</title>
+<title>MTB-kartta - Selaimessa</title>
 
 <!-- Own CSS-sheet must be after leaflet's to override certain settings -->
 <link rel="stylesheet" href="./leaflet/leaflet.css"/>
@@ -15,7 +15,6 @@
 <link href="./scripts/TK.css" rel="stylesheet">
 
 <!-- Fonts from Google Fonts -->
-<link href='https://fonts.googleapis.com/css?family=Abel" rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
 <link href='https://fonts.googleapis.com/css?family=Rajdhani:regular,medium,semi-bold,bold' rel='stylesheet' type='text/css'>
 
@@ -24,9 +23,7 @@
 <script src="./leaflet/leaflet.ajax.min.js" type="text/javascript"></script>
 <script src="./skitracks_tampere.geojson" type="text/javascript"></script>
 <script src="./scripts/easy-button.js"></script>
-	 
-<!-- Hightlighting the active page's navbutton -->
-
+<script src="./scripts/responsive.menu.js"></script>
 </head>
 <body class="site">
 <!--
@@ -35,23 +32,22 @@
 ################################################
 -->
 <header>
-<div class="column-header">
-<a href="#" id="logo"></a>
-<logotitle>
-MTB-KARTTA<span style="font-family:'Open Sans'; font-size:75%">.</span>FI
-</logotitle>
-<nav>
-
-<a href="#" id="menu-icon"></a>
-
-<ul>
-  <li class="current"><a href="./MTB-kartta_selaimessa.html">Selaimessa</a></li>
-  <li><a href="./MTB-kartta_garminiin.html">Garmin/Mobiili</a></li>
-  <li><a href="./MTB-kartta_selite.html">Karttaselite</a></li>
-</ul>
-
-</nav>
-</div>
+	<div class="column-header">
+		<div class="logo_and_title_container">
+			<a href="#" id="logo"></a>
+			<logotitle>
+			MTB-KARTTA<span style="font-family:'Open Sans'; font-size:75%">.</span>FI
+			</logotitle>
+		</div>
+		<ul class="topnav" id="myTopnav">
+		 	<li class="icon">
+		    <a href="javascript:void(0);" onclick="setResponsive()">MENU &#9776;</a>
+		  </li>
+		  <li class="current"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></li>
+		  <li><a href="MTB-kartta_garminiin.html">Garmin/Mobiili</a></li>
+		  <li><a href="MTB-kartta_selite.html">Karttaselite</a></li>
+		</ul>
+	</div>
 </header>
 <!--
 ################################################
