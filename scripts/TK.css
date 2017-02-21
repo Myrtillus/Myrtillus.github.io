@@ -73,13 +73,14 @@ footer {
     background:linear-gradient(to bottom, #1a1a1a 0%,#3b3b3b 20%,#3b3b3b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#3b3b3b',GradientType=0 ); /* IE6-9 */
 }
-/* Wrapper for whole site */
+
 /*
  * 1. Avoid the IE 10-11 `min-height` bug.
  * 2. Set `flex-shrink` to `0` to prevent Chrome, Opera, and Safari from
  *    letting these items shrink to smaller than their content's default
  *    minimum size.
  */
+ /* Wrapper for whole site */
 .site {
   display:flex;
   flex-direction:column;
@@ -112,30 +113,16 @@ footer {
 }
 .column-full-map {
   padding-top:0px;
-  position:relative¨;
+  position:relative;
   z-index:1;
   width:100%;
   height:calc(100vh - 150px); /* Height = everything minus header/footer */
 }
-.column-header {
+.column-full-header {
   max-width:900px; 
   height:100%;
   margin:auto;
 }
-
-.logo_and_title_container {
-  width:390px;
-  float:left;
-}
-#logo {
-  margin:10px;
-  float:left;
-  width:62px;
-  height:80px;
-  background:url(../images/gps-symbol_medium.png) no-repeat center;
-  display:block;
-}
-
 .column-full-footer {
   padding-top:8px;
   line-height:50%;
@@ -151,7 +138,20 @@ footer {
   vertical-align:top;
 }
 
-/* Container to spread a row of image evenly horizontally across column */
+.logo_and_title_container {
+  width:390px;
+  float:left;
+}
+#logo {
+  margin:10px;
+  float:left;
+  width:62px;
+  height:80px;
+  background:url(../images/gps-symbol_medium.png) no-repeat center;
+  display:block;
+}
+
+/* Spreading a row of images evenly horizontally across column */
 .image-container {
   text-align:justify;
   line-height:0;
@@ -172,6 +172,9 @@ footer {
   height:5px;
   width:160px; 
 }
+
+/* Map legend styling */
+/**********************/
 .symbol {
   display:inline-block;
   vertical-align:top;
