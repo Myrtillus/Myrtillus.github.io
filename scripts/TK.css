@@ -324,6 +324,10 @@ ul.topnav li.current {
   border-top: 1px solid #f2a766;
   border-bottom: 1px solid #f2a766;
 }
+  ul.topnav li.current:hover {
+    border-top: 1px solid #f87907;
+    border-bottom: 1px solid #f87907;
+  }
 ul.topnav.small li.current {
   border-top: 1px solid #f2a766;
   border-bottom: 1px solid #f2a766;
