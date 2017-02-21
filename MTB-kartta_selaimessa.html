@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fi">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
 <meta name="author" content="Tapio K.">
 <!-- <link rel="icon" href="../../favicon.ico"> Page icon here once one gets made -->
 
-<title>MTB-kartta - Selaimessa</title>
+<title>MTB-kartta – Selaimessa</title>
 
 <!-- Own CSS-sheet must be after leaflet's to override certain settings -->
 <link rel="stylesheet" href="./leaflet/leaflet.css"/>
@@ -59,18 +59,18 @@
 	<script type="text/javascript">
 	// Styling the ski overlay
 	var skiStyle = {
-		"color": "#ff0037",
-		"weight": 7,
-		"dashArray": "3 3",
-		"lineCap": "butt",
-		"opacity": 1
+		"color":"#ff0037",
+		"weight":7,
+		"dashArray":"3 3",
+		"lineCap":"butt",
+		"opacity":1
 	};  
 	
     // Creating layers (making the geojson layer (possible) puts it on top)
-	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style: skiStyle}); 				
-	var	/*mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', minZoom: 15, maxZoom: 16}),*/
-      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id: 'MTB-kartta', maxZoom: 16}),
-      mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id: 'MML-kartta', maxZoom: 15});	
+	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style:skiStyle}); 				
+	var	/*mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', minZoom:15, maxZoom:16}),*/
+      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', maxZoom:16}),
+      mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id:'MML-kartta', maxZoom:15});	
 
 	// Base layer data attributions
 	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -84,59 +84,59 @@
 
 	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
-/*		"MTB-kartta": mtb,*/
-		"MTB-kartta": arp,
-		"MML-kartta": mml,
+/*		"MTB-kartta":mtb,*/
+		"MTB-kartta":arp,
+		"MML-kartta":mml,
 	};
 	var overlayMaps = {
-		"Ladut": ski,
+		"Ladut":ski,
 	};	
 					
 	// Creating the main map, with mtb-layer as default
 	var map = L.map('map', {
-		center: [61.5110,23.8126],
-		zoom: 15,
-		layers: [arp]
+		center:[61.5110,23.8126],
+		zoom:15,
+		layers:[arp]
 	});					
 
 	// Adding the layer control panel
-	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible: true, position: 'topright', collapsed: false, });
+	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible:true, position:'topright', collapsed:false, });
 	map.addControl(layerControl);
 
 	// Creating EasyButtons for quick travel
 	L.easyButton({
-		id: 'quickTravel',
-		position: 'topright',
-		states: [{
-			icon: '<p>Oulu</p>',
-			onClick: function(){ map.setView([65.0098, 25.4722]); }
+		id:'quickTravel',
+		position:'topright',
+		states:[{
+			icon:'<p>Oulu</p>',
+			onClick:function(){ map.setView([65.0098, 25.4722]); }
 			}]
 	}).addTo(map);
 	
 	L.easyButton({
-		id: 'quickTravel',
-		position: 'topright',
-		states: [{
-			icon: '<p>Porvoo</p>',
-			onClick: function(){ map.setView([60.3931, 25.6652]); }
+		id:'quickTravel',
+		position:'topright',
+		states:[{
+			icon:'<p>Porvoo</p>',
+			onClick:function(){ map.setView([60.3931, 25.6652]); }
 			}]
 	}).addTo(map);
 	
 	L.easyButton({
-		id: 'quickTravel',
-		position: 'topright',
-		states: [{
-			icon: '<p>Rovaniemi</p>',
-			onClick: function(){ map.setView([66.5039, 25.7293]); }
+		id:'quickTravel',
+		position:'topright',
+		states:[{
+			icon:'<p>Rovaniemi</p>',
+			onClick:function(){ map.setView([66.5039, 25.7293]); }
 			}]
 	}).addTo(map);
 	
 	L.easyButton({
-		id: 'quickTravel',
-		position: 'topright',
-		states: [{
-			icon: '<p>Tampere</p>',
-			onClick: function(){ map.setView([61.5110,23.8126]); }
+		id:'quickTravel',
+		position:'topright',
+		states:[{
+			icon:'<p>Tampere</p>',
+			onClick:function(){ map.setView([61.5110,23.8126]); }
 			}]
 	}).addTo(map);
 
