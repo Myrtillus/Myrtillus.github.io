@@ -539,3 +539,24 @@ a {
     background-position:-700px -170px; 
 }
 
+/* Leaflet draw */
+/*
+#delete, #export {
+    position: absolute;
+    top:245px;
+    right:10px;
+    z-index:9999;
+    background:white;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+    color:black;
+    padding:6px;
+    border-radius:2px;
+    font-family: 'Open Sans',sans-serif;
+    cursor: pointer;
+    font-size:12px;
+    text-decoration:none;
+}
+#export {
+    top:280px;
+}
+*/
