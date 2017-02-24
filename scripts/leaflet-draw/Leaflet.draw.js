@@ -85,60 +85,60 @@ L.drawLocal = {
 			// #TODO: this should be reorganized where actions are nested in actions
 			// ex: actions.undo  or actions.cancel
 			actions: {
-				title: 'Cancel drawing',
-				text: 'Cancel'
+				title: 'Keskeytä piirtäminen',
+				text: 'Keskeytä'
 			},
 			finish: {
-				title: 'Finish drawing',
-				text: 'Finish'
+				title: 'Viimeistele piirtäminen',
+				text: 'Viimeistele'
 			},
 			undo: {
-				title: 'Delete last point drawn',
-				text: 'Delete last point'
+				title: 'Poista viimeisin piirretty piste',
+				text: 'Poista viimeisin piste'
 			},
 			buttons: {
-				polyline: 'Draw a polyline',
-				polygon: 'Draw a polygon',
-				rectangle: 'Draw a rectangle',
-				circle: 'Draw a circle',
-				marker: 'Draw a marker'
+				polyline: 'Piirrä reitti',
+				polygon: 'Piirrä alue',
+				rectangle: 'Piirrä suorakaide',
+				circle: 'Piirrä ympyrä',
+				marker: 'Piirrä merkki'
 			}
 		},
 		handlers: {
 			circle: {
 				tooltip: {
-					start: 'Click and drag to draw circle.'
+					start: 'Klikkaa ja vedä piirtääksesi ympyrän'
 				},
-				radius: 'Radius'
+				radius: 'Säde'
 			},
 			marker: {
 				tooltip: {
-					start: 'Click map to place marker.'
+					start: 'Klikkaa sijoittaaksesi merkin'
 				}
 			},
 			polygon: {
 				tooltip: {
-					start: 'Click to start drawing shape.',
-					cont: 'Click to continue drawing shape.',
-					end: 'Click first point to close this shape.'
+					start: 'Klikkaa aloittaaksesi piirtämisen ',
+					cont: 'Klikkaa jatkaaksesi piirtämistä',
+					end: 'Klikkaa ensimmäistä pistettä viimeistelläksesi muodon'
 				}
 			},
 			polyline: {
-				error: '<strong>Error:</strong> shape edges cannot cross!',
+				error: '<strong>Virhe:</strong> muodon reunat eivät saa ristetä!',
 				tooltip: {
-					start: 'Click to start drawing line.',
-					cont: 'Click to continue drawing line.',
-					end: 'Click last point to finish line.'
+					start: 'Klikkaa piirtääksesi reitin',
+					cont: 'Klikkaa jatkaaksesi piirtämistä',
+					end: 'Klikkaa viimeistä pistettä päättääksesi reitin'
 				}
 			},
 			rectangle: {
 				tooltip: {
-					start: 'Click and drag to draw rectangle.'
+					start: 'Klikkaa ja vedä piirtääksesi suorakaiteen'
 				}
 			},
 			simpleshape: {
 				tooltip: {
-					end: 'Release mouse to finish drawing.'
+					end: 'Vapauta hiirennappi lopettaaksesi piirtämisen'
 				}
 			}
 		}
@@ -147,35 +147,35 @@ L.drawLocal = {
 		toolbar: {
 			actions: {
 				save: {
-					title: 'Save changes.',
-					text: 'Save'
+					title: 'Tallenna muutokset',
+					text: 'Tallenna'
 				},
 				cancel: {
-					title: 'Cancel editing, discards all changes.',
-					text: 'Cancel'
+					title: 'Peruuta muokkaus, hylkää muutokset',
+					text: 'Peruuta'
 				},
 				clearAll:{
-					title: 'clear all layers.',
-					text: 'Clear All'
+					title: 'Tyhjennä piirretyt',
+					text: 'Tyhjennä kaikki'
 				}
 			},
 			buttons: {
-				edit: 'Edit layers.',
-				editDisabled: 'No layers to edit.',
-				remove: 'Delete layers.',
-				removeDisabled: 'No layers to delete.'
+				edit: 'Muokkaa piirrettyjä',
+				editDisabled: 'Ei piirrettyjä muokattavaksi',
+				remove: 'Poista piirretyt',
+				removeDisabled: 'Ei piirrettyjä poistettavaksi'
 			}
 		},
 		handlers: {
 			edit: {
 				tooltip: {
-					text: 'Drag handles, or marker to edit feature.',
-					subtext: 'Click cancel to undo changes.'
+					text: 'Vedä pisteitä tai merkkiä muokataksesi',
+					subtext: 'Klikkaa peruuta hylätäksesi muutokset'
 				}
 			},
 			remove: {
 				tooltip: {
-					text: 'Click on a feature to remove'
+					text: 'Klikkaa elementtiä poistaaksesi sen'
 				}
 			}
 		}
