@@ -169,7 +169,7 @@ L.drawLocal = {
 		handlers: {
 			edit: {
 				tooltip: {
-					text: 'Vedä pisteitä tai merkkiä muokataksesi',
+					text: 'Klikaa ja vedä merkkiä muokataksesi',
 					subtext: 'Klikkaa peruuta hylätäksesi muutokset'
 				}
 			},

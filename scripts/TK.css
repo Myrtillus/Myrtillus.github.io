@@ -435,8 +435,8 @@ a {
 /* Styling leaflet elements to match rest of the site */
 /******************************************************/
 .leaflet-container {
-  font:80% 'Open Sans', Arial, Helvetica, sans-serif;
-  }
+  font:80% 'Open Sans', Arial, Helvetica, sans-serif; /* Should switch these all to pt... */
+}
 
 .leaflet-bar a {
   background-color:#ffffff;
@@ -448,10 +448,10 @@ a {
   text-align:center;
   text-decoration:none;
   color:black;
-  }
-  .leaflet-bar a:hover {
+}
+.leaflet-bar a:hover {
    background-color:#f4f4f4;
-  }
+}
 /* Removing corner smoothing from between the two buttons in leaflet's zoom control and divider line from below the lowest */
 
   .leaflet-bar a:first-child {
@@ -472,17 +472,76 @@ a {
 .leaflet-control-layers {
   border-radius:2px;
 }
+
+/* Styling leaflet draw elements to match rest of the site */
+/***********************************************************/
+
+/* Buttons' popup menus */
+.leaflet-draw-actions a {
+  background-color: #3b3b3b;
+  border-left: 1px solid #AAA;
+  color: #f2a766;
+  font:100% 'Open Sans', Arial, Helvetica, sans-serif;
+  line-height: 28px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 28px;
+}
+.leaflet-draw-actions a:hover {
+  color:#f87907;
+  background-color:#1a1a1a;
+  transition:0.3s;
+}
+
+/* Tooltip while drawing */
+.leaflet-draw-tooltip {
+  background: rgb(59, 59, 59);
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid transparent;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  font: 12.5px/18px 'Open Sans', Arial, Helvetica, sans-serif;
+  margin-left: 20px;
+  margin-top: -21px;
+  padding: 2px 6px;
+  position: absolute;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 6;
+}
+  /* Tooltip while drawing, "speech bubble" notch */
+  .leaflet-draw-tooltip:before {
+    visibility: hidden;
+  }
+  /* Colored text in tooltip when drawing (distance etc.) */
+  .leaflet-draw-tooltip-subtext {
+    color: #f2a766;
+    font-weight:600;
+  }
+  /* Dotted line between cursor and last marker when drawing */
+  .leaflet-draw-guide-dash {
+    font-size: 1%;
+    opacity: 0.75;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+  }
+
 /* Export button for GPX */
 #exportGPX {
     position: absolute;
     top:175px;
     left:10px;
+    height:16px;
     z-index:100;
     background:white;
     color:black;
     padding:6px;
     border-radius:2px;
     font:80% 'Open Sans', Arial, Helvetica, sans-serif;
+    line-height: 16px;
     cursor: pointer;
     text-decoration:none;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
