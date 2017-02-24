@@ -9,8 +9,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin:0;
@@ -21,7 +21,7 @@ time, mark, audio, video {
   vertical-align:baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display:block;
 }
@@ -61,12 +61,12 @@ header {
     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 footer {
-  height:50px; 
+  height:50px;
   width:100vw;
   position:relative;
   flex-shrink:0;
   left:0;
-  bottom:0; 
+  bottom:0;
   background:#3b3b3b; /* For browsers that do not support gradients */
     background:-moz-linear-gradient(top, #1a1a1a 0%, #3b3b3b 20%, #3b3b3b 100%); /* FF3.6-15 */
     background:-webkit-linear-gradient(top, #1a1a1a 0%,#3b3b3b 20%,#3b3b3b 100%); /* Chrome10-25,Safari5.1-6 */
@@ -119,7 +119,7 @@ footer {
   height:calc(100vh - 150px); /* Height = everything minus header/footer */
 }
 .column-full-header {
-  max-width:900px; 
+  max-width:900px;
   height:100%;
   margin:auto;
 }
@@ -134,7 +134,7 @@ footer {
 }
 /* Half-width column for map legend etc. */
 .column-half {
-  width:48.5%; 
+  width:48.5%;
   vertical-align:top;
 }
 
@@ -170,7 +170,7 @@ footer {
 .image-text {
   display:inline-block;
   height:5px;
-  width:160px; 
+  width:160px;
 }
 
 /* Map legend styling */
@@ -203,7 +203,7 @@ footer {
   margin-bottom:15px;
   font:11pt 'Open Sans',sans-serif;
   line-height:140%;
-} 
+}
 
 /* Navigation styling */
 /**********************/
@@ -406,26 +406,26 @@ small {
 /***********************/
 a {
   text-decoration:none;
-  background:transparent; 
+  background:transparent;
   text-decoration:none;
 }
   a:visited {
-    color:#f2a766; 
+    color:#f2a766;
   }
   a:link {
-    color:#f2a766; 
+    color:#f2a766;
   }
   a:hover {
-    color:#f87907; 
+    color:#f87907;
   }
   a:active {
-    color:#f87907; 
+    color:#f87907;
   }
 
 /* Styling the quick travel buttons */
 #quickTravel {
-  height:26px; 
-  width:84px;  
+  height:26px;
+  width:84px;
   text-indent:-2px;
   font:100% 'Open Sans',sans-serif;
   text-align:left;
@@ -471,72 +471,87 @@ a {
 .leaflet-control-layers {
   border-radius:2px;
 }
+/* Export button for GPX */
+#exportGPX {
+    position: absolute;
+    top:175px;
+    left:10px;
+    z-index:100;
+    background:white;
+    color:black;
+    padding:6px;
+    border-radius:2px;
+    font:80% 'Open Sans', Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    text-decoration:none;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
 
 /* Images for map legend */
 /*************************/
 .motorway {
-    background-position:-12px -14px; 
+    background-position:-12px -14px;
 }
 .trunk {
-    background-position:-65px -14px; 
+    background-position:-65px -14px;
 }
 .primary {
-    background-position:-118px -14px; 
+    background-position:-118px -14px;
 }
 .residential {
-    background-position:-277px -14px; 
+    background-position:-277px -14px;
 }
 .service {
-    background-position:-330px -14px; 
+    background-position:-330px -14px;
 }
 .mtbp0- {
-    background-position:-1496px -93px; 
+    background-position:-1496px -93px;
 }
 .mtbp0 {
-    background-position:-1549px -93px; 
+    background-position:-1549px -93px;
 }
 .mtbp1 {
-    background-position:-1655px -93px; 
+    background-position:-1655px -93px;
 }
 .mtbp2 {
-    background-position:-1708px -93px; 
+    background-position:-1708px -93px;
 }
 .mtbp3 {
-    background-position:-1761px -93px; 
+    background-position:-1761px -93px;
 }
 .mtbp4 {
-    background-position:-1814px -93px; 
+    background-position:-1814px -93px;
 }
 .mtbp5 {
-    background-position:-1867px -93px; 
+    background-position:-1867px -93px;
 }
 .footway {
-    background-position:-1496px -14px; 
+    background-position:-1496px -14px;
 }
 .cycleway {
-    background-position:-1549px -14px; 
+    background-position:-1549px -14px;
 }
 .forbidden {
-    background-position:-330px -170px; 
+    background-position:-330px -170px;
 }
 .wet {
-    background-position:-434px -167px; 
+    background-position:-434px -167px;
 }
 .vegetation {
-    background-position:-1549px -251px; 
+    background-position:-1549px -251px;
 }
 .path_types {
-    background-position:-1496px -247px; 
+    background-position:-1496px -247px;
 }
 
 .continue {
-    background-position:-594px -170px; 
+    background-position:-594px -170px;
 }
 .resurvey {
-    background-position:-647px -170px; 
+    background-position:-647px -170px;
 }
 .noexit {
-    background-position:-700px -170px; 
+    background-position:-700px -170px;
 }
 
 /* Leaflet draw */
