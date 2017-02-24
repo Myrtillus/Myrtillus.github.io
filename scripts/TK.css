@@ -440,7 +440,7 @@ a {
 
 .leaflet-bar a {
   background-color:#ffffff;
-  border-bottom:3px solid #ccc;
+  border-bottom:1px solid #ccc;
   width:26px;
   height:26px;
   line-height:26px;
@@ -453,6 +453,7 @@ a {
    background-color:#f4f4f4;
   }
 /* Removing corner smoothing from between the two buttons in leaflet's zoom control and divider line from below the lowest */
+
   .leaflet-bar a:first-child {
     border-bottom-left-radius:0px;
     border-bottom-right-radius:0px;
@@ -466,6 +467,7 @@ a {
     border-bottom-right-radius:2px;
     border-bottom:none;
   }
+
 /* Sharpening layer control's corners */
 .leaflet-control-layers {
   border-radius:2px;
@@ -483,7 +485,7 @@ a {
     font:80% 'Open Sans', Arial, Helvetica, sans-serif;
     cursor: pointer;
     text-decoration:none;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.65);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
 }
 
 /* Images for map legend */
