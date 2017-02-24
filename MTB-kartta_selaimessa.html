@@ -15,7 +15,7 @@
 <link href="./scripts/TK.css" rel="stylesheet">
 
 <!-- Fonts from Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Rajdhani:regular,medium,semi-bold,bold' rel='stylesheet' type='text/css'>
 
 <!-- Scripts -->
@@ -24,6 +24,46 @@
 <script src="./skitracks_tampere.geojson" type="text/javascript"></script>
 <script src="./scripts/easy-button.js"></script>
 <script src="./scripts/responsive.menu.js"></script>
+<script src="./scripts/jquery-3.1.1.min.js"></script>
+<!-- Leaflet draw -->
+<link rel="stylesheet" href="./scripts/leaflet-draw/leaflet.draw.css" />
+
+<script src="./scripts/leaflet-draw/Leaflet.draw.js"></script>
+<script src="./scripts/leaflet-draw/Leaflet.Draw.Event.js"></script>
+
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Poly.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.SimpleShape.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Circle.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Rectangle.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Marker.js"></script>
+
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Feature.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polyline.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polygon.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.SimpleShape.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Rectangle.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Circle.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Marker.js"></script>
+
+<script src="./scripts/leaflet-draw/ext/TouchEvents.js"></script>
+<script src="./scripts/leaflet-draw/ext/LatLngUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/GeometryUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/LineUtil.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polyline.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polygon.Intersect.js"></script>
+
+<script src="./scripts/leaflet-draw/Control.Draw.js"></script>
+<script src="./scripts/leaflet-draw/Tooltip.js"></script>
+<script src="./scripts/leaflet-draw/Toolbar.js"></script>
+
+<script src="./scripts/leaflet-draw/draw/DrawToolbar.js"></script>
+<script src="./scripts/leaflet-draw/edit/EditToolbar.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Edit.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Delete.js"></script>
+
+<!-- GeoJSON to GPX -->
+<script src='./scripts/togpx/togpx.js'></script>
+
 </head>
 <body class="site">
 <!--
@@ -54,7 +94,16 @@
 ###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
 ################################################
 -->
+  <!-- Leaflet draw ######################################## -->
+
+
+  <!-- Leaflet draw ends ################################### -->
+
 <main class="site-content">
+<!-- Leaflet draw export button -->
+<a href="#" download="Reitti.gpx" id="exportGPX">Tallenna reitti</a>
+
+<!-- Map screen -->
 <div id="map" class="column-full-map">
 	<script type="text/javascript">
 	// Styling the ski overlay
@@ -64,18 +113,14 @@
 		"dashArray":"3 3",
 		"lineCap":"butt",
 		"opacity":1
-	};  
-	
-    // Creating layers (making the geojson layer (possible) puts it on top)
-	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style:skiStyle}); 				
-	var	/*mtb	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', minZoom:15, maxZoom:16}),*/
-      arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', maxZoom:16}),
-      mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id:'MML-kartta', maxZoom:15});	
+	};
+
+  // Creating layers (making the geojson layer first (hopefully) puts it on top)
+	var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style:skiStyle});
+	var	arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', maxZoom:16}),
+      mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id:'MML-kartta', maxZoom:15});
 
 	// Base layer data attributions
-	var mtbAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
-					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
 	var arpAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 					'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
 					'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
@@ -84,20 +129,19 @@
 
 	// Defining the layer(group)s for the layercontrol and creating the control
 	var baseLayers = {
-/*		"MTB-kartta":mtb,*/
 		"MTB-kartta":arp,
 		"MML-kartta":mml,
 	};
 	var overlayMaps = {
 		"Ladut":ski,
-	};	
-					
+	};
+
 	// Creating the main map, with mtb-layer as default
 	var map = L.map('map', {
 		center:[61.5110,23.8126],
 		zoom:15,
 		layers:[arp]
-	});					
+	});
 
 	// Adding the layer control panel
 	var layerControl = L.control.layers( baseLayers, overlayMaps, {visible:true, position:'topright', collapsed:false, });
@@ -112,7 +156,7 @@
 			onClick:function(){ map.setView([65.0098, 25.4722]); }
 			}]
 	}).addTo(map);
-	
+
 	L.easyButton({
 		id:'quickTravel',
 		position:'topright',
@@ -121,7 +165,7 @@
 			onClick:function(){ map.setView([60.3931, 25.6652]); }
 			}]
 	}).addTo(map);
-	
+
 	L.easyButton({
 		id:'quickTravel',
 		position:'topright',
@@ -130,7 +174,7 @@
 			onClick:function(){ map.setView([66.5039, 25.7293]); }
 			}]
 	}).addTo(map);
-	
+
 	L.easyButton({
 		id:'quickTravel',
 		position:'topright',
@@ -143,6 +187,87 @@
 	// Just to (try and) make sure the ski track overlay draws on top of everything else
 	layer.bringToFront(geojsonLayer)
 	</script>
+
+<!-- Leaflet draw -->
+	<script type="text/javascript">
+    var drawnItems = new L.FeatureGroup();
+    map.addLayer(drawnItems);
+
+    // Set the title to show on the polygon button
+    L.drawLocal.draw.toolbar.buttons.polyline = 'Piirrä reitti';
+
+
+    // Leaflet draw control elements
+    var drawControl = new L.Control.Draw({
+        position: 'topleft',
+        draw: {
+            polyline: {
+              metric: true,
+              feet: false,
+              nautic: false,
+              showLength: true,
+              zIndesOffset: 99999,
+              guidelineDistance: 10,
+              maxGuideLineLength: 4000,
+              shapeOptions: {
+                stroke: true,
+                color: '#0099FF',
+                weight: 4,
+                opacity: 0.75,
+                fill: false,
+                clickable: true
+              },
+            },
+            marker: false,
+            polygon: false,
+            circle: false,
+            rectangle: false,
+        },
+        edit: {
+            featureGroup: drawnItems,
+            remove: true
+        }
+    });
+
+    map.addControl(drawControl);
+
+    // Leaflet draw drawing functions
+    map.on(L.Draw.Event.CREATED, function (e) {
+        var type = e.layerType,
+                layer = e.layer;
+
+        drawnItems.addLayer(layer);
+    });
+
+    map.on(L.Draw.Event.EDITED, function (e) {
+        var layers = e.layers;
+        var countOfEditedLayers = 0;
+        layers.eachLayer(function (layer) {
+            countOfEditedLayers++;
+        });
+        console.log("Edited " + countOfEditedLayers + " layers");
+    });
+
+    // Saving drawn elements
+    $("#exportGPX").on('click', function (event) {
+      // Extract GeoJson from featureGroup
+      var data = drawnItems.toGeoJSON();
+
+      // Convert GeoJSON data to GPX
+      gpxFile = togpx(data);
+
+      // prepare the string that is going to go into the href attribute
+      // data:mimetype;encoding,string
+      data = 'data:application/javascript;charset=utf-8,' + encodeURIComponent(gpxFile);
+
+      // Create export
+      $(this).attr({
+    		'href': data,
+    		'target': '_blank'
+    	});
+    });
+</script>
+
 </div>
 <!--
 ###################################################
