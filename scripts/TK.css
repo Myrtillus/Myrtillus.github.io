@@ -520,22 +520,26 @@ a {
 
 /* Export button for GPX */
 #exportGPX {
-    position: absolute;
-    top:175px;
-    left:10px;
-    height:16px;
-    z-index:100;
-    background:white;
-    color:black;
-    padding:6px;
-    border-radius:2px;
-    font:80% 'Open Sans', Arial, Helvetica, sans-serif;
-    line-height: 16px;
-    cursor: pointer;
-    text-decoration:none;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+  position: absolute;
+  top:175px;
+  left:10px;
+  height:26px;
+  width:26px;
+  z-index:100;
+  background-color:#ffffff;
+  background-image:url('../images/save.svg');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: 16px 16px;
+  border-radius:2px;
+  line-height: 16px;
+  cursor: pointer;
+  text-decoration:none;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
 }
-
+  #exportGPX:hover {
+    background-color:#f4f4f4;
+  }
 /* Styling the quick travel buttons */
 #quickTravel {
   height:26px;
