@@ -85,8 +85,8 @@ L.drawLocal = {
 			// #TODO: this should be reorganized where actions are nested in actions
 			// ex: actions.undo  or actions.cancel
 			actions: {
-				title: 'Keskeytä piirtäminen',
-				text: 'Keskeytä'
+				title: 'Lopeta piirtäminen ja hylkää reitti',
+				text: 'Hylkää'
 			},
 			finish: {
 				title: 'Viimeistele piirtäminen',
@@ -94,7 +94,7 @@ L.drawLocal = {
 			},
 			undo: {
 				title: 'Poista viimeisin piirretty piste',
-				text: 'Poista viimeisin piste'
+				text: 'Askel taaksepäin'
 			},
 			buttons: {
 				polyline: 'Piirrä reitti',
@@ -128,7 +128,7 @@ L.drawLocal = {
 				tooltip: {
 					start: 'Klikkaa piirtääksesi reitin',
 					cont: 'Klikkaa jatkaaksesi piirtämistä',
-					end: 'Klikkaa viimeistä pistettä päättääksesi reitin'
+					end: 'Lopeta klikkaamalla viimeistä pistettä'
 				}
 			},
 			rectangle: {
@@ -162,7 +162,7 @@ L.drawLocal = {
 			buttons: {
 				edit: 'Muokkaa piirrettyjä',
 				editDisabled: 'Ei piirrettyjä muokattavaksi',
-				remove: 'Poista piirretyt',
+				remove: 'Poista piirrettyjä',
 				removeDisabled: 'Ei piirrettyjä poistettavaksi'
 			}
 		},
