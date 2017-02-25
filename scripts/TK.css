@@ -515,7 +515,6 @@ a {
 .leaflet-draw-section:last-of-type li:last-of-type {
   display:none;
 }
-
 /* Export button for GPX */
 #exportGPX {
   position: absolute;
@@ -548,6 +547,20 @@ a {
   line-height:23px;
   border-radius:2px;
 }
+
+/* Styling tooltips */
+/********************/
+.tpd-skin-dark .tpd-content,
+.tpd-skin-dark .tpd-title,
+.tpd-skin-dark .tpd-close { color: #fff; }
+.tpd-skin-dark .tpd-background-content,
+.tpd-skin-dark .tpd-background-title {
+  background-color: #3b3b3b;
+}
+[class^="tpd"] {
+  font: 12.5px 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
 
 /* Images for map legend */
 /*************************/

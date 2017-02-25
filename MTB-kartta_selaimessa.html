@@ -13,19 +13,22 @@
 <link rel="stylesheet" href="./leaflet/leaflet.css"/>
 <link rel="stylesheet" href="./scripts/leaflet-draw/leaflet.draw.css" />
 <link rel="stylesheet" href="./scripts/easy-button.css" />
+<link rel="stylesheet" type="text/css" href="./scripts/tipped.css"/>
 <link href="./scripts/TK.css" rel="stylesheet">
 
 <!-- Fonts from Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Rajdhani:regular,medium,semi-bold,bold' rel='stylesheet' type='text/css'>
 
-<!-- Scripts -->
+<!-- Assorted scripts -->
 <script src="./leaflet/leaflet-src.js" type="text/javascript"></script>
 <script src="./leaflet/leaflet.ajax.min.js" type="text/javascript"></script>
 <script src="./skitracks_tampere.geojson" type="text/javascript"></script>
 <script src="./scripts/easy-button.js"></script>
 <script src="./scripts/responsive.menu.js"></script>
 <script src="./scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./scripts/tipped.js"></script>
+
 <!-- Leaflet draw -->
 <script src="./scripts/leaflet-draw/Leaflet.draw.js"></script>
 <script src="./scripts/leaflet-draw/Leaflet.Draw.Event.js"></script>
@@ -262,7 +265,6 @@
     	});
     });
 </script>
-
 </div>
 <!--
 ###################################################
@@ -283,5 +285,53 @@
 ###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
 ###################################################
 -->
+<!-- Tooltips for leaflet/leaflet draw -->
+<script type="text/javascript">
+  /* Defining common style for all tooltips */
+  $.extend(Tipped.Behaviors, {
+    'leaflet-draw-buttons': {
+      position: 'right',
+      hideOn: { element: 'mouseleave', tooltip: 'mouseenter' },
+      radius: false,
+      showDelay: 300
+    }
+  });
+
+  /* Defining tooltip texts for leaflet buttons */
+  $(document).ready(function() {
+    Tipped.create('.leaflet-control-zoom-in', 'Zoomaa sisään', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+  $(document).ready(function() {
+    Tipped.create('.leaflet-control-zoom-out', 'Zoomaa ulos', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-draw-polyline', 'Piirrä reitti', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-edit-edit', 'Muokkaa reittiä', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-edit-remove', 'Poista reitti', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('#exportGPX', 'Tallenna reitti .gpx-tiedostoksi', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+</script>
 </body>
 </html>
