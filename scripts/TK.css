@@ -198,7 +198,7 @@ footer {
 .symbol-desc {
   display:inline-block;
   vertical-align:top;
-  margin-top:-5px;
+  margin-top:0px;
   padding-left:0px;
   margin-bottom:15px;
   font:11pt 'Open Sans',sans-serif;
