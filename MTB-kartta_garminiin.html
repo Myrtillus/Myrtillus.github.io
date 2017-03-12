@@ -88,7 +88,26 @@
       <bodytext>
       Lataa ja asenna <a href="https://play.google.com/store/apps/details?id=com.orux.oruxmaps">OruxMaps</a>. Kopioi .img-tiedosto puhelimen muistikortille OruxMapsin asetuksissa määriteltyyn kansioon. Aktivoi kartta 'Offline maps'-valikosta.<br>
       <b>TAI</b><br>
-      Lisää karttaserveri OruxMapsin online-karttoihin. [ohje tulossa]
+      Lisää karttaserveri OruxMapsin online-karttoihin täydentämällä seuraavat rivit tiedostoon '\oruxmaps\mapfiles\customonlinemaps\onlinemapsources.xml':<br>
+      <codetext><pre>  &lt;onlinemapsource uid="4"&gt;
+    &lt;name&gt;MTB-kartta&lt;/name&gt;
+    &lt;url&gt;&lt;![CDATA[http://kartta.arpotechno.fi/tiles/{$z}/{$x}/{$y}.png]]&gt;&lt;/url&gt;
+    &lt;minzoom&gt;0&lt;/minzoom&gt;
+    &lt;maxzoom&gt;16&lt;/maxzoom&gt;
+    &lt;projection&gt;MERCATORESFERICA&lt;/projection&gt;
+    &lt;servers&gt;&lt;/servers&gt;
+    &lt;httpparam name="User-Agent"&gt;{om}&lt;/httpparam&gt;
+    &lt;cacheable&gt;1&lt;/cacheable&gt;
+    &lt;downloadable&gt;1&lt;/downloadable&gt;
+    &lt;maxtilesday&gt;0&lt;/maxtilesday&gt;
+    &lt;maxthreads&gt;0&lt;/maxthreads&gt;
+    &lt;xop&gt;&lt;/xop&gt;
+    &lt;yop&gt;&lt;/yop&gt;
+    &lt;zop&gt;&lt;/zop&gt;
+    &lt;qop&gt;&lt;/qop&gt;
+    &lt;sop&gt;&lt;/sop&gt;
+  &lt;/onlinemapsource&gt;</pre></codetext>
+      Huom. rivin <codetext>&lt;/onlinemapsource&gt;</codetext> jälkeen on jäätävä tiedoston päättävä alkuperäinen <codetext>&lt;/onlinemapsources&gt;</codetext>.
       </bodytext>
     </div>
   </div>

@@ -408,6 +408,10 @@ copyright {
   text-align:left;
   color:#7f7f7f;
 }
+codetext {
+  font:10pt 'Courier New',serif;
+  color:#7f7f7f;
+}
 b {
   font-weight:700;
   color:#3b3b3b;

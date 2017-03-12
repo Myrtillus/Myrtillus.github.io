@@ -140,7 +140,7 @@ var skiStyle = {
 var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style:skiStyle});
 var	arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', maxZoom:16}),
     mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id:'MML-kartta', maxZoom:15}),
-    str	= L.tileLayer('http://globalheat.strava.com/tiles/cycling/color5/{z}/{x}/{y}.png', {id:'Strava-heatmap', maxZoom:16});
+    str	= L.tileLayer('http://globalheat.strava.com/tiles/cycling/color4/{z}/{x}/{y}.png', {id:'Strava-heatmap', maxZoom:16});
 
 // Base layer data attributions
 var arpAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
