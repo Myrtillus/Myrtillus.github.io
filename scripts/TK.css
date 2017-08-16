@@ -473,7 +473,90 @@ a {
 /* Styling leaflet draw elements to match rest of the site */
 /***********************************************************/
 
+/* Aligning leaflet icon backgrounds for touch interface */
+.leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-polyline {
+    background-position: 0 -2px;
+}
 
+.leaflet-draw-toolbar .leaflet-draw-edit-edit {
+    background-position: -150px -2px;
+}
+
+.leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-edit {
+    background-position: -152px -2px;
+}
+
+.leaflet-draw-toolbar .leaflet-draw-edit-remove {
+    background-position: -182px -2px;
+}
+
+.leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-remove {
+    background-position: -182px -2px;
+}
+
+.leaflet-draw-toolbar .leaflet-draw-edit-edit.leaflet-disabled {
+    background-position: -212px -2px;
+}
+
+.leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-edit.leaflet-disabled {
+    background-position: -212px -2px;
+}
+
+.leaflet-draw-toolbar .leaflet-draw-edit-remove.leaflet-disabled {
+    background-position: -242px -2px;
+}
+
+.leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-remove.leaflet-disabled {
+    background-position: -242px -2px;
+}
+
+/* Aligning leaflet and leaflet draw control elements for touch interface */
+
+.leaflet-touch .leaflet-draw-toolbar {
+    margin-left: 0px;
+}
+
+.leaflet-touch .leaflet-control-zoom {
+    margin-left: 10px;
+}
+
+.leaflet-touch .leaflet-draw-toolbar {
+  margin-top: 3px;
+}
+
+.leaflet-touch .leaflet-right {
+  margin-right: +16px;
+}
+
+
+/* Unifying leaflet button borders for regular and touch */
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: none;
+	background-clip: padding-box;
+	}
+
+/* Leaflet button sizes */
+.leaflet-touch .leaflet-bar a {
+  width:26px;
+  height:26px;
+  line-height:26px;
+  }
+.leaflet-control-zoom-in .leaflet-touch, 
+.leaflet-draw-edit-edit .leaflet-touch  {
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  }
+.leaflet-control-zoom-out .leaflet-touch,
+.leaflet-draw-edit-remove .leaflet-touch  {
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
 
 /* Buttons' popup menus */
 .leaflet-draw-actions a {
@@ -527,7 +610,8 @@ a {
     width: 4px;
     height: 4px;
   }
-.leaflet-bar {
+.leaflet-bar,
+.leaflet-touch .leaflet-bar {
   border-top-left-radius:2px;
   border-top-right-radius:2px;
   border-bottom-left-radius:2px;
@@ -539,7 +623,7 @@ a {
   display:none;
 }
 /* Export button for GPX */
-#exportGPX {
+.exportGPX {
   position: absolute;
   top:174px;
   left:10px;
@@ -557,9 +641,10 @@ a {
   text-decoration:none;
   box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
 }
-  #exportGPX:hover {
+  .exportGPX:hover {
     background-color:#f4f4f4;
   }
+  
 /* Styling the quick travel buttons */
 #quickTravel {
   height:26px;
@@ -583,6 +668,7 @@ a {
 [class^="tpd"] {
   font: 12.5px 'Open Sans', Arial, Helvetica, sans-serif;
 }
+
 
 
 /* Images for map legend */
@@ -652,24 +738,3 @@ a {
     background-position:-700px -170px;
 }
 
-/* Leaflet draw */
-/*
-#delete, #export {
-    position: absolute;
-    top:245px;
-    right:10px;
-    z-index:9999;
-    background:white;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.65);
-    color:black;
-    padding:6px;
-    border-radius:2px;
-    font-family: 'Open Sans',sans-serif;
-    cursor: pointer;
-    font-size:12px;
-    text-decoration:none;
-}
-#export {
-    top:280px;
-}
-*/
