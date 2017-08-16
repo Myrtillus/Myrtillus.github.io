@@ -177,6 +177,15 @@ L.easyButton({
   id:'quickTravel',
   position:'topright',
   states:[{
+    icon:'<p>Nokia</p>',
+    onClick:function(){ map.setView([61.4803, 23.5012]); }
+    }]
+}).addTo(map);
+
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
     icon:'<p>Oulu</p>',
     onClick:function(){ map.setView([65.0098, 25.4722]); }
     }]
