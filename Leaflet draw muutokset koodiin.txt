@@ -1,3 +1,0 @@
-Tooltippien suomennokset:
-Leaflet.draw.js
-Lines 84-183
