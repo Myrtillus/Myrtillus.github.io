@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fi" style="overflow-y:hidden;">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MTB-kartta">
+<meta name="author" content="Tapio K.">
+<!-- <link rel="icon" href="../../favicon.ico"> Page icon here once one gets made -->
+
+<title>MTB-kartta – Selaimessa</title>
+
+
+<!-- Own CSS-sheet must be last to override certain settings -->
+<link rel="stylesheet" href="./leaflet/leaflet.css"/>
+<link rel="stylesheet" href="./scripts/leaflet-draw/leaflet.draw.css"/>
+<link rel="stylesheet" href="./scripts/easy-button.css" />
+<link rel="stylesheet" type="text/css" href="./scripts/tipped.css"/>
+<link href="./scripts/TK.css" rel="stylesheet">
+
+
+<!-- Fonts from Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Rajdhani:regular,medium,semi-bold,bold' rel='stylesheet' type='text/css'>
+
+
+<!-- Leaflet script -->
+<script src="./leaflet/leaflet-src.js"></script>
+
+
+<!-- Leaflet.draw scripts -->
+
+<script src="./scripts/leaflet-draw/Leaflet.draw.js"></script>
+<script src="./scripts/leaflet-draw/Leaflet.Draw.Event.js"></script>
+
+<script src="./scripts/leaflet-draw/Toolbar.js"></script>
+<script src="./scripts/leaflet-draw/Tooltip.js"></script>
+
+<script src="./scripts/leaflet-draw/ext/GeometryUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/LatLngUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/LineUtil.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polygon.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polyline.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/TouchEvents.js"></script>
+
+<script src="./scripts/leaflet-draw/draw/DrawToolbar.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Feature.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.SimpleShape.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polyline.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Marker.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Circle.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.CircleMarker.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polygon.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Rectangle.js"></script>
+
+
+<script src="./scripts/leaflet-draw/edit/EditToolbar.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Edit.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Delete.js"></script>
+
+<script src="./scripts/leaflet-draw/Control.Draw.js"></script>
+
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Poly.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.SimpleShape.js"></script>
+
+<!-- Site navigation menu -->
+<script src="./scripts/responsive.menu.js"></script>
+
+<!-- GeoJSON to GPX -->
+<script src='./scripts/togpx/togpx.js'></script>
+<script src="./scripts/jquery-3.1.1.min.js"></script>
+
+</head>
+<body class="site">
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
+################################################
+-->
+<header>
+	<div class="column-full-header">
+		<div class="logo_and_title_container">
+			<a href="#" id="logo"></a>
+			<logotitle>
+			MTB-KARTTA
+			</logotitle>
+		</div>
+		<ul class="topnav" id="myTopnav">
+		 	<li class="icon">
+		    <a href="javascript:void(0);" onclick="setResponsive()">MENU &#9776;</a>
+		  </li>
+		  <li class="current"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></li>
+		  <li><a href="MTB-kartta_garminiin.html">Garmin/Mobiili</a></li>
+		  <li><a href="MTB-kartta_selite.html">Karttaselite</a></li>
+		</ul>
+	</div>
+</header>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
+################################################
+-->
+<main class="site-content">
+<!-- Leaflet draw export button -->
+<a href="#" download="Reitti.gpx" id="exportGPX" class="exportGPX"></a>
+
+<!-- Map screen -->
+<div id="map" class="column-full-map">
+</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
+###################################################
+-->
+<footer>
+  <div class="column-full column-full-footer">
+    <div class="column-footer-left">
+      <copyright>
+      OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+      MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. Tähän perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>.<br/>
+      </copyright>
+    </div>
+    <div class="column-footer-right">
+      <copyright>
+      MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+      </copyright>
+    </div>
+  </div>
+</footer>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
+###################################################
+-->
+
+
+
+<!-- Map display -->
+<script type="text/javascript">
+
+var map = L.map('map').setView([61.4803, 23.5012], 16),
+    drawnItems = L.featureGroup().addTo(map);
+
+L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' + 'Imagery © Tapio K.',
+    minZoom: 15,
+    maxZoom: 16,
+    id: 'tkn'
+}).addTo(map);
+
+
+map.addControl(new L.Control.Draw({
+    edit: {
+        featureGroup: drawnItems,
+        remove: true
+    },
+    draw: {
+        polyline: {
+          metric: true,
+          feet: false,
+          nautic: false,
+          showLength: true,
+          allowIntersection: true,
+          repeatMode: false,
+          zIndesOffset: 99999,
+          guidelineDistance: 10,
+          maxGuideLineLength: 4000,
+          shapeOptions: {
+            stroke: true,
+            color: '#cd51f9',
+            weight: 4,
+            opacity: 0.75,
+            fill: false,
+            clickable: false
+          },
+          icon: new L.DivIcon({
+            iconSize: new L.Point(5, 5),
+            className: 'my-own-class'
+          })
+        },
+        polygon: false,
+        rectangle: false,
+        circle: false,
+        marker: false,
+        circlemarker: false
+    }
+}));
+
+
+L.Edit.Poly = L.Edit.Poly.extend({
+    options : {
+        icon: new L.DivIcon({
+             iconSize: new L.Point(5, 5),
+             className: 'leaflet-div-icon leaflet-editing-icon my-own-icon'
+        })
+    }
+});
+
+
+// Leaflet draw drawing functions
+map.on(L.Draw.Event.CREATED, function (event) {
+    var layer = event.layer;
+
+    drawnItems.addLayer(layer);
+});
+
+// Saving drawn elements
+$("#exportGPX").on('click', function (event) {
+  // Extract GeoJson from featureGroup
+  var data = drawnItems.toGeoJSON();
+  // Convert GeoJSON data to GPX
+  gpxFile = togpx(data);
+  // prepare the string that is going to go into the href attribute
+  // data:mimetype;encoding,string
+  data = 'data:application/javascript;charset=utf-8,' + encodeURIComponent(gpxFile);
+  // Create export
+  $(this).attr({
+    'href': data,
+    'target': '_blank'
+  });
+});
+
+</script>
+
+</body>
+</html>

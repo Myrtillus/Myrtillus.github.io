@@ -41,11 +41,24 @@ table {
   border-spacing:0;
 }
 
+
+.hlsBlending {
+  filter: brightness(140%);
+  mix-blend-mode: multiply;
+}
+
+
+
+
+
+
+
 /* Site areas */
 /**************/
 html {
   height:100vh;
   overflow-y:scroll;
+  overflow-x:hidden;
 }
 
 header {
@@ -404,6 +417,7 @@ bodytext {
 copyright {
   font:7pt 'Open Sans',sans-serif;
   line-height:9pt;
+  padding-top:5px;
 
   text-align:left;
   color:#7f7f7f;
@@ -446,6 +460,9 @@ a {
 
 /* Styling leaflet elements to match rest of the site */
 /******************************************************/
+
+
+
 .leaflet-container {
   font:80% 'Open Sans', Arial, Helvetica, sans-serif; /* Should switch these all to pt... */
 }
@@ -547,7 +564,7 @@ a {
   height:26px;
   line-height:26px;
   }
-.leaflet-control-zoom-in .leaflet-touch, 
+.leaflet-control-zoom-in .leaflet-touch,
 .leaflet-draw-edit-edit .leaflet-touch  {
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
@@ -644,7 +661,7 @@ a {
   .exportGPX:hover {
     background-color:#f4f4f4;
   }
-  
+
 /* Styling the quick travel buttons */
 #quickTravel {
   height:26px;
@@ -737,4 +754,3 @@ a {
 .noexit {
     background-position:-700px -170px;
 }
-

@@ -44,8 +44,6 @@
  * ```
  */
 L.Toolbar = L.Class.extend({
-	includes: [L.Mixin.Events],
-
 	// @section Methods for modifying the toolbar
 
 	// @method initialize(options): void
@@ -56,6 +54,14 @@ L.Toolbar = L.Class.extend({
 		this._modes = {};
 		this._actionButtons = [];
 		this._activeMode = null;
+
+		var version = L.version.split('.');
+		//If Version is >= 1.2.0
+		if (parseInt(version[0], 10) === 1 && parseInt(version[1], 10) >= 2) {
+			L.Toolbar.include(L.Evented.prototype);
+		} else {
+			L.Toolbar.include(L.Mixin.Events);
+		}
 	},
 
 	// @method enabled(): boolean
@@ -175,6 +181,13 @@ L.Toolbar = L.Class.extend({
 			.on('disabled', this._handlerDeactivated, this);
 	},
 
+	/* Detect iOS based on browser User Agent, based on:
+	 * http://stackoverflow.com/a/9039885 */
+	_detectIOS: function () {
+		var iOS = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
+		return iOS;
+	},
+
 	_createButton: function (options) {
 
 		var link = L.DomUtil.create('a', options.className || '', options.container);
@@ -194,25 +207,31 @@ L.Toolbar = L.Class.extend({
 			sr.innerHTML = options.text;
 		}
 
+		/* iOS does not use click events */
+		var buttonEvent = this._detectIOS() ? 'touchstart' : 'click';
+
 		L.DomEvent
 			.on(link, 'click', L.DomEvent.stopPropagation)
 			.on(link, 'mousedown', L.DomEvent.stopPropagation)
 			.on(link, 'dblclick', L.DomEvent.stopPropagation)
 			.on(link, 'touchstart', L.DomEvent.stopPropagation)
 			.on(link, 'click', L.DomEvent.preventDefault)
-			.on(link, 'click', options.callback, options.context);
+			.on(link, buttonEvent, options.callback, options.context);
 
 		return link;
 	},
 
 	_disposeButton: function (button, callback) {
+		/* iOS does not use click events */
+		var buttonEvent = this._detectIOS() ? 'touchstart' : 'click';
+
 		L.DomEvent
 			.off(button, 'click', L.DomEvent.stopPropagation)
 			.off(button, 'mousedown', L.DomEvent.stopPropagation)
 			.off(button, 'dblclick', L.DomEvent.stopPropagation)
 			.off(button, 'touchstart', L.DomEvent.stopPropagation)
 			.off(button, 'click', L.DomEvent.preventDefault)
-			.off(button, 'click', callback);
+			.off(button, buttonEvent, callback);
 	},
 
 	_handlerActivated: function (e) {
@@ -300,6 +319,7 @@ L.Toolbar = L.Class.extend({
 		}
 
 		this._actionsContainer.style.display = 'block';
+		this._map.fire(L.Draw.Event.TOOLBAROPENED);
 	},
 
 	_hideActionsToolbar: function () {
@@ -309,5 +329,6 @@ L.Toolbar = L.Class.extend({
 		L.DomUtil.removeClass(this._toolbarContainer, 'leaflet-draw-toolbar-nobottom');
 		L.DomUtil.removeClass(this._actionsContainer, 'leaflet-draw-actions-top');
 		L.DomUtil.removeClass(this._actionsContainer, 'leaflet-draw-actions-bottom');
+		this._map.fire(L.Draw.Event.TOOLBARCLOSED);
 	}
 });

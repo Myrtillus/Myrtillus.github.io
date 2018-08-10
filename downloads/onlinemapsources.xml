@@ -1,0 +1,18 @@
+<onlinemapsource uid="4">
+  <name>MTB-kartta</name>
+  <url><![CDATA[http://kartta.arpotechno.fi/tiles/{$z}/{$x}/{$y}.png]]></url>
+  <minzoom>0</minzoom>
+  <maxzoom>16</maxzoom>
+  <projection>MERCATORESFERICA</projection>
+  <servers></servers>
+  <httpparam name=""></httpparam>
+  <cacheable>1</cacheable>
+  <downloadable>1</downloadable>
+  <maxtilesday>0</maxtilesday>
+  <maxthreads>0</maxthreads>
+  <xop></xop>
+  <yop></yop>
+  <zop></zop>
+  <qop></qop>
+  <sop></sop>
+</onlinemapsource>

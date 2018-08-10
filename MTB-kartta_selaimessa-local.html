@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MTB-kartta">
+<meta name="author" content="Tapio K.">
+<!-- <link rel="icon" href="../../favicon.ico"> Page icon here once one gets made -->
+
+<title>MTB-kartta – Selaimessa</title>
+
+<!-- Own CSS-sheet must be last to override certain settings -->
+<link rel="stylesheet" href="./leaflet/leaflet.css"/>
+<link rel="stylesheet" href="./scripts/leaflet-draw/leaflet.draw.css" />
+<link rel="stylesheet" href="./scripts/easy-button.css" />
+<link rel="stylesheet" type="text/css" href="./scripts/tipped.css"/>
+<link href="./scripts/TK.css" rel="stylesheet">
+
+<!-- Fonts from Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Rajdhani:regular,medium,semi-bold,bold' rel='stylesheet' type='text/css'>
+
+<script src="./leaflet/leaflet-src.js" type="text/javascript"></script>
+
+</head>
+<body class="site">
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION BEGINS   ###
+################################################
+-->
+<header>
+	<div class="column-full-header">
+		<div class="logo_and_title_container">
+			<a href="#" id="logo"></a>
+			<logotitle>
+			MTB-KARTTA
+			</logotitle>
+		</div>
+		<ul class="topnav" id="myTopnav">
+		 	<li class="icon">
+		    <a href="javascript:void(0);" onclick="setResponsive()">MENU &#9776;</a>
+		  </li>
+		  <li class="current"><a href="MTB-kartta_selaimessa.html">Selaimessa</a></li>
+		  <li><a href="MTB-kartta_garminiin.html">Garmin/Mobiili</a></li>
+		  <li><a href="MTB-kartta_selite.html">Karttaselite</a></li>
+		</ul>
+	</div>
+</header>
+<!--
+################################################
+###   COMMON TOP-BAR AND NAVIGATION ENDS     ###
+################################################
+-->
+<main class="site-content">
+<!-- Leaflet draw export button -->
+<a href="#" download="Reitti.gpx" id="exportGPX" class="exportGPX"></a>
+
+<!-- Map screen -->
+<div id="map" class="column-full-map">
+</div>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION BEGINS   ###
+###################################################
+-->
+<footer>
+  <div class="column-full column-full-footer">
+    <div class="column-footer-left">
+      <copyright>
+      OSM-karttadata &copy; <a href="http://openstreetmap.org">OpenStreetMapin</a> tekijät, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA</a>. MTB-kartan täydentävä aineisto &copy; <a href="http://osoite.tahan/">MTB-kartta</a>.<br/>
+      MML:n kartta-aineisto &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, <a href="http://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a>. Tähän perustuvat karttatiilet tarjoaa <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>.<br/>
+      Strava pyöräily-heatmap &copy; <a href="http://www.strava.com">Strava</a>.<br/>
+      </copyright>
+    </div>
+    <div class="column-footer-right">
+      <copyright>
+      MTB-karttatiilien laskennan sekä palvelimen tarjoaa <a href="http://www.arpotechno.fi/">Arpotechno</a>.
+      </copyright>
+    </div>
+  </div>
+</footer>
+<!--
+###################################################
+###   COMMON BOTTOM-BAR AND NAVIGATION ENDS     ###
+###################################################
+-->
+
+<!-- Assorted scripts -->
+<script src="./scripts/responsive.menu.js"></script>
+<script src="./leaflet/leaflet.ajax.min.js" type="text/javascript"></script>
+<script src="./skitracks_tampere.geojson" type="text/javascript"></script>
+<script src="./scripts/easy-button.js"></script>
+<script src="./scripts/jquery-3.1.1.min.js"></script>
+<script src="./scripts/tipped.js"></script>
+
+<!-- Leaflet draw -->
+<script src="./scripts/leaflet-draw/Leaflet.draw.js"></script>
+<script src="./scripts/leaflet-draw/Leaflet.Draw.Event.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Poly.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.SimpleShape.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Circle.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Rectangle.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/Edit.Marker.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Feature.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polyline.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Polygon.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.SimpleShape.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Rectangle.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Circle.js"></script>
+<script src="./scripts/leaflet-draw/draw/handler/Draw.Marker.js"></script>
+<script src="./scripts/leaflet-draw/ext/TouchEvents.js"></script>
+<script src="./scripts/leaflet-draw/ext/LatLngUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/GeometryUtil.js"></script>
+<script src="./scripts/leaflet-draw/ext/LineUtil.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polyline.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/ext/Polygon.Intersect.js"></script>
+<script src="./scripts/leaflet-draw/Control.Draw.js"></script>
+<script src="./scripts/leaflet-draw/Tooltip.js"></script>
+<script src="./scripts/leaflet-draw/Toolbar.js"></script>
+<script src="./scripts/leaflet-draw/draw/DrawToolbar.js"></script>
+<script src="./scripts/leaflet-draw/edit/EditToolbar.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Edit.js"></script>
+<script src="./scripts/leaflet-draw/edit/handler/EditToolbar.Delete.js"></script>
+<!-- GeoJSON to GPX -->
+<script src='./scripts/togpx/togpx.js'></script>
+
+<!-- Map display -->
+<script type="text/javascript">
+// Styling the ski overlay
+var skiStyle = {
+  "color":"#ff0037",
+  "weight":7,
+  "dashArray":"3 3",
+  "lineCap":"butt",
+  "opacity":1
+};
+
+// Creating layers (making the geojson layer first (hopefully) puts it on top)
+var ski = new L.GeoJSON.AJAX("skitracks_tampere.geojson", {style:skiStyle});
+var	arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {id:'MTB-kartta', maxZoom:16}),
+    mml	= L.tileLayer('http://tiles.kartat.kapsi.fi/peruskartta/{z}/{x}/{y}.jpg', {id:'MML-kartta', maxZoom:15}),
+    tkn	= L.tileLayer('file:///D:/Kartoitus/MTB-tiles/{z}/{x}/{y}.png', {id:'TK-kartta', maxZoom:16});
+
+// Base layer data attributions
+var arpAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> ' +
+        'Imagery © <a href="http://osoite.tahan/">MTB-KARTTA</a>';
+var mmlAttr = 	'Map data &copy; <a href="http://www.maanmittauslaitos.fi">Maanmittauslaitos</a>, ' +
+        'Imagery © <a href="http://kartat.kapsi.fi/">Kapsi Internet-käyttäjät ry</a>';
+var tknAttr = 	'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        'Imagery © Tapio K.';
+
+// Defining the layer(group)s for the layercontrol and creating the control
+var baseLayers = {
+  "MTB-kartta":arp,
+  "TK-kartta":tkn,
+  "MML-kartta":mml,
+};
+var overlayMaps = {
+  "Ladut":ski,
+};
+
+// Creating the main map, with tk-layer as default
+var map = L.map('map', {
+  center:[61.4803, 23.5012],
+  zoom:15,
+  layers:[tkn]
+});
+
+// Adding the layer control panel
+var layerControl = L.control.layers( baseLayers, overlayMaps, {visible:true, position:'topright', collapsed:false, });
+map.addControl(layerControl);
+
+// Creating EasyButtons for quick travel
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
+    icon:'<p>Nokia</p>',
+    onClick:function(){ map.setView([61.4803, 23.5012]); }
+    }]
+}).addTo(map);
+
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
+    icon:'<p>Oulu</p>',
+    onClick:function(){ map.setView([65.0098, 25.4722]); }
+    }]
+}).addTo(map);
+
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
+    icon:'<p>Porvoo</p>',
+    onClick:function(){ map.setView([60.3931, 25.6652]); }
+    }]
+}).addTo(map);
+
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
+    icon:'<p>Rovaniemi</p>',
+    onClick:function(){ map.setView([66.5039, 25.7293]); }
+    }]
+}).addTo(map);
+
+L.easyButton({
+  id:'quickTravel',
+  position:'topright',
+  states:[{
+    icon:'<p>Tampere</p>',
+    onClick:function(){ map.setView([61.5110,23.8126]); }
+    }]
+}).addTo(map);
+
+// Just to (try and) make sure the ski track overlay draws on top of everything else
+layer.bringToFront(geojsonLayer)
+</script>
+
+<!-- Leaflet draw -->
+<script type="text/javascript">
+  var drawnItems = new L.FeatureGroup();
+  map.addLayer(drawnItems);
+
+  // Leaflet draw control elements
+  var drawControl = new L.Control.Draw({
+      position: 'topleft',
+      draw: {
+          polyline: {
+            metric: true,
+            feet: false,
+            nautic: false,
+            showLength: true,
+            zIndesOffset: 99999,
+            guidelineDistance: 10,
+            maxGuideLineLength: 4000,
+            shapeOptions: {
+              stroke: true,
+              color: '#0099FF',
+              weight: 4,
+              opacity: 0.75,
+              fill: false,
+              clickable: true
+            },
+          },
+          marker: false,
+          polygon: false,
+          circle: false,
+          rectangle: false,
+      },
+      edit: {
+          featureGroup: drawnItems,
+          remove: true
+      }
+  });
+
+  map.addControl(drawControl);
+
+  // Leaflet draw drawing functions
+  map.on(L.Draw.Event.CREATED, function (e) {
+      var type = e.layerType,
+              layer = e.layer;
+
+      drawnItems.addLayer(layer);
+  });
+  // Leaflet draw editing functions
+  map.on(L.Draw.Event.EDITED, function (e) {
+      var layers = e.layers;
+      var countOfEditedLayers = 0;
+      layers.eachLayer(function (layer) {
+          countOfEditedLayers++;
+      });
+      console.log("Edited " + countOfEditedLayers + " layers");
+  });
+
+  // Saving drawn elements
+  $("#exportGPX").on('click', function (event) {
+    // Extract GeoJson from featureGroup
+    var data = drawnItems.toGeoJSON();
+    // Convert GeoJSON data to GPX
+    gpxFile = togpx(data);
+    // prepare the string that is going to go into the href attribute
+    // data:mimetype;encoding,string
+    data = 'data:application/javascript;charset=utf-8,' + encodeURIComponent(gpxFile);
+    // Create export
+    $(this).attr({
+      'href': data,
+      'target': '_blank'
+    });
+  });
+
+  /* Defining common style for all tooltips */
+  $.extend(Tipped.Behaviors, {
+    'leaflet-draw-buttons': {
+      position: 'right',
+      hideOn: { element: 'mouseleave', tooltip: 'mouseenter' },
+      radius: false,
+      showDelay: 300
+    }
+  });
+
+  /* Tooltips for leaflet draw */
+  $(document).ready(function() {
+    Tipped.create('.leaflet-control-zoom-in', 'Zoomaa sisään', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+  $(document).ready(function() {
+    Tipped.create('.leaflet-control-zoom-out', 'Zoomaa ulos', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-draw-polyline', 'Piirrä reitti', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-edit-edit', 'Muokkaa reittiä', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('.leaflet-draw-edit-remove', 'Poista reitti', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+
+  $(document).ready(function() {
+    Tipped.create('#exportGPX', 'Tallenna reitti .gpx-tiedostoksi', {
+      behavior: 'leaflet-draw-buttons'
+    });
+  });
+</script>
+</body>
+</html>

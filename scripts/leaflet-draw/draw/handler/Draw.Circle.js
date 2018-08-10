@@ -36,11 +36,18 @@ L.Draw.Circle = L.Draw.SimpleShape.extend({
 	},
 
 	_drawShape: function (latlng) {
+		// Calculate the distance based on the version
+		if (L.GeometryUtil.isVersion07x()) {
+			var distance = this._startLatLng.distanceTo(latlng);
+		} else {
+			var distance = this._map.distance(this._startLatLng, latlng);
+		}
+
 		if (!this._shape) {
-			this._shape = new L.Circle(this._startLatLng, this._startLatLng.distanceTo(latlng), this.options.shapeOptions);
+			this._shape = new L.Circle(this._startLatLng, distance, this.options.shapeOptions);
 			this._map.addLayer(this._shape);
 		} else {
-			this._shape.setRadius(this._startLatLng.distanceTo(latlng));
+			this._shape.setRadius(distance);
 		}
 	},
 
@@ -65,7 +72,7 @@ L.Draw.Circle = L.Draw.SimpleShape.extend({
 			var subtext = '';
 			if (showRadius) {
 				subtext = L.drawLocal.draw.handlers.circle.radius + ': ' +
-						  L.GeometryUtil.readableDistance(radius, useMetric, this.options.feet, this.options.nautic);
+					L.GeometryUtil.readableDistance(radius, useMetric, this.options.feet, this.options.nautic);
 			}
 			this._tooltip.updateContent({
 				text: this._endLabelText,

@@ -2,14 +2,9 @@ L.Edit = L.Edit || {};
 /**
  * @class L.Edit.Circle
  * @aka Edit.Circle
- * @inherits L.Edit.SimpleShape
+ * @inherits L.Edit.CircleMarker
  */
-L.Edit.Circle = L.Edit.SimpleShape.extend({
-	_createMoveMarker: function () {
-		var center = this._shape.getLatLng();
-
-		this._moveMarker = this._createMarker(center, this.options.moveIcon);
-	},
+L.Edit.Circle = L.Edit.CircleMarker.extend({
 
 	_createResizeMarker: function () {
 		var center = this._shape.getLatLng(),
@@ -26,25 +21,28 @@ L.Edit.Circle = L.Edit.SimpleShape.extend({
 		return this._map.unproject([point.x + delta, point.y - delta]);
 	},
 
-	_move: function (latlng) {
-		var resizemarkerPoint = this._getResizeMarkerPoint(latlng);
-
-		// Move the resize marker
-		this._resizeMarkers[0].setLatLng(resizemarkerPoint);
-
-		// Move the circle
-		this._shape.setLatLng(latlng);
-
-		this._map.fire(L.Draw.Event.EDITMOVE, { layer: this._shape });
-	},
-
 	_resize: function (latlng) {
-		var moveLatLng = this._moveMarker.getLatLng(),
+		var moveLatLng = this._moveMarker.getLatLng();
+
+		// Calculate the radius based on the version
+		if (L.GeometryUtil.isVersion07x()) {
 			radius = moveLatLng.distanceTo(latlng);
+		} else {
+			radius = this._map.distance(moveLatLng, latlng);
+		}
+		this._shape.setRadius(radius);
+
+		if (this._map.editTooltip) {
+			this._map._editTooltip.updateContent({
+				text: L.drawLocal.edit.handlers.edit.tooltip.subtext + '<br />' + L.drawLocal.edit.handlers.edit.tooltip.text,
+				subtext: L.drawLocal.draw.handlers.circle.radius + ': ' +
+				L.GeometryUtil.readableDistance(radius, true, this.options.feet, this.options.nautic)
+			});
+		}
 
 		this._shape.setRadius(radius);
 
-		this._map.fire(L.Draw.Event.EDITRESIZE, { layer: this._shape });
+		this._map.fire(L.Draw.Event.EDITRESIZE, {layer: this._shape});
 	}
 });
 
