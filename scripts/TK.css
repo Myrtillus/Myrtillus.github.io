@@ -46,7 +46,13 @@ table {
   filter: brightness(140%);
   mix-blend-mode: multiply;
 }
-
+.ctrBlending {
+  filter: brightness(120%);
+  filter: contrast(200%);
+  filter: saturate(50%);
+  filter: opacity(50%);
+  mix-blend-mode: darken;
+}
 
 
 

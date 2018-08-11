@@ -163,6 +163,13 @@ var	arp	= L.tileLayer('http://kartta.arpotechno.fi/tiles/{z}/{x}/{y}.png', {
       opacity:0.5
     });
 
+    var ctr	= L.tileLayer('http://wmts.mapant.fi/wmts_EPSG3857.php?z={z}&x={x}&y={y}', {
+      id:'Korkeuskäyrät',
+      maxZoom:16,
+      maxNativeZoom:16
+    });
+
+
 
 // Defining the layer(group)s for the layercontrol and creating the control
 var baseLayers = {
@@ -172,17 +179,21 @@ var baseLayers = {
 };
 var overlayMaps = {
   "Rinnevarjostus":hls,
+  "Korkeuskäyrät":ctr,
 };
 
 // Creating the main map, with mtb-layer as default
 var map = L.map('map', {
   center:[61.5110,23.8126],
   zoom:15,
-  layers:[arp, hls]
+  layers:[arp]
 });
 
 // Set hillshading layer blending options fom CSS
 $(hls.getContainer()).addClass('hlsBlending');
+// Set contour layer blending options fom CSS
+$(ctr.getContainer()).addClass('ctrBlending');
+
 
 // Adding the layer control panel
 var layerControl = L.control.layers( baseLayers, overlayMaps, {visible:true, position:'topright', collapsed:false, });
@@ -310,6 +321,7 @@ L.easyButton({
 // Reapply hillshading layer blending options from CSS each time the layer is added
 map.on("overlayadd", function (event) {
   $(hls.getContainer()).addClass('hlsBlending');
+  $(ctr.getContainer()).addClass('ctrBlending');
 });
 
 
